@@ -51,7 +51,7 @@ const onRegister = (e) => {
     username: document.getElementById("username").value,
     password: document.getElementById("password").value,
   };
-  fetch("/api/users/", {
+  fetch("/api/users/register", {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     body: JSON.stringify(user), // body data type must match "Content-Type" header
     headers: {
