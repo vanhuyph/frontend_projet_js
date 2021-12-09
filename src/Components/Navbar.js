@@ -23,10 +23,11 @@ const Navbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#" data-uri="/">Home</a>
+        <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
+        <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
         <a class="nav-item nav-link" href="#" data-uri="/users">List users</a> 
-        <a class="nav-item nav-link" href="#" data-uri="/logout">Logout</a>
         <a class="nav-item nav-link disabled" href="#">${user.user.username}</a>
+        <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
     </div>
   </nav>`;

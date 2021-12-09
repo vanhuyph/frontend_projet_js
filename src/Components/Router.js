@@ -3,6 +3,8 @@ import ErrorPage from "./ErrorPage.js";
 import LoginPage from "./LoginPage.js";
 import LogoutPage from "./LogoutPage.js";
 import RegisterPage from "./RegisterPage.js";
+import AddRecipePage from "./AddRecipePage.js"
+
 
 const routes = {
   "/": HomePage,
@@ -10,6 +12,7 @@ const routes = {
   "/login": LoginPage,
   "/logout": LogoutPage,
   "/register": RegisterPage,
+  "/addrecipe": AddRecipePage,
 };
 
 let navBar = document.querySelector("#navBar");
