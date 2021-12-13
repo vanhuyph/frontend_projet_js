@@ -83,7 +83,7 @@ const onError = (err) => {
   let messageBoard = document.querySelector("#messageBoard");
   let errorMessage = "";
   if (err.message.includes("409"))
-    errorMessage = "This user is already registered.";
+    errorMessage = "Ce pseudo existe déjà.";
   else errorMessage = err.message;
   messageBoard.innerText = errorMessage;
   // show the messageBoard div (add relevant Bootstrap class)

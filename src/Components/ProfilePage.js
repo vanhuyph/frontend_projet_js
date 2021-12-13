@@ -1,7 +1,7 @@
 import { getUserSessionData } from "../utils/session.js";
 import { RedirectUrl } from "./Router.js";
 
-let profilePage = `Mes recettes : `;
+let profilePage = `<h2>Mes recettes : </h2>`;
 
 
 const ProfilePage = () => {
