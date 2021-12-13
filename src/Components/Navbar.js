@@ -48,9 +48,9 @@ const Navbar = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#" data-uri="/">Home</a>
-      <a class="nav-item nav-link" href="#" data-uri="/register">Register</a>
-      <a class="nav-item nav-link" href="#" data-uri="/login">Login</a> 
+      <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
+      <a class="nav-item nav-link" href="#" data-uri="/register">S'inscrire</a>
+      <a class="nav-item nav-link" href="#" data-uri="/login">Se connecter</a> 
     </div>
   </div>
   </nav>`;

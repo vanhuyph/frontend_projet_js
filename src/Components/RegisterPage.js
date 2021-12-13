@@ -15,18 +15,18 @@ let registerPage = `
           >
             <form>
               <div class="form-group">
-                <label for="email">Username</label>
-                <input class="form-control" id="username" type="text" name="username" placeholder="Enter your username" required="" />
+                <label for="email">Pseudo</label>
+                <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre pseudo" required="" />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input class="form-control" id="email" type="text" name="email" placeholder="Enter your email" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,4})+\$" />
+                <input class="form-control" id="email" type="text" name="email" placeholder="Entrez votre email" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,4})+\$" />
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
-                <input class="form-control" id="password" type="password" name="password" placeholder="Enter your password" required="" pattern=".*[A-Z]+.*" />
+                <label for="password">Mot de passe</label>
+                <input class="form-control" id="password" type="password" name="password" placeholder="Entrez votre mot de passe" required="" pattern=".*[A-Z]+.*" />
               </div>
-              <button class="btn btn-primary" id="btn" type="submit">Submit</button>
+              <button class="btn btn-primary" id="btn" type="submit">S'inscrire</button>
               
               <div class="alert alert-danger mt-2 d-none" id="messageBoard"></div><span id="errorMessage"></span>
             </form>
