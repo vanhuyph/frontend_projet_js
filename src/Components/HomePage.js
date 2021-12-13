@@ -1,6 +1,12 @@
 const HomePage = () => {
   let page = document.querySelector("#page");
+  let generate = `
+  <div class="container text-center">
+    <button type="button" class="btn btn-primary" id="btnGenerate" >Générer une recette</button>
+  </div>
+  `;
   page.innerHTML = "";
+
   fetch("/api/recipes") // fetch return a promise => we wait for the response
     .then((response) => {
       if (!response.ok)
@@ -11,7 +17,6 @@ const HomePage = () => {
       return response.json(); // json() return a promise => we wait for the response
     })
     .then((recipes) => {
-      console.log(recipes);
       recipes.forEach((recipe) => {
         const name = document.createElement("div");
         const description = document.createElement("div");
@@ -35,6 +40,29 @@ const HomePage = () => {
         page.appendChild(ingredients_list);
         page.appendChild(username);
       });
+    });
+
+  //Bouton pour généré une recette aleatoirement.
+  let btnGenerateRecipe = document.getElementById("btnGenerate");
+  btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
+};
+
+const onGenerateRecipe = () => {
+  fetch("/api/recipes/random", {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(
+          "Error code : " + response.status + " : " + response.statusText
+        );
+      return response.json();
+    })
+    .then((randomRecipe) => {
+      console.log(randomRecipe);
     });
 };
 
