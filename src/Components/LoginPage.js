@@ -82,7 +82,7 @@ const onUserLogin = (userData) => {
 const onError = (err) => {
   let messageBoard = document.querySelector("#messageBoard");
   let errorMessage = "";
-  if (err.message.includes("401")) errorMessage = "Wrong username or password.";
+  if (err.message.includes("401")) errorMessage = "Pseudo/mot de passe incorrect.";
   else errorMessage = err.message;
   messageBoard.innerText = errorMessage;
   // show the messageBoard div (add relevant Bootstrap class)

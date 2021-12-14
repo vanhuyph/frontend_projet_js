@@ -6,9 +6,8 @@ const AddRecipePage = () => {
     let user = getUserSessionData();
     if (!user) return RedirectUrl("/login");
     console.log(user);
-    // reset #page div
     const pageDiv = document.querySelector("#page");
-    pageDiv.innerHTML = "";
+    pageDiv.innerHTML = `<h2>Ajoutez votre propre recette personnalisé</h2>`;
 
     // create the "Add a recipe" form
     const form = document.createElement("form");
@@ -20,16 +19,16 @@ const AddRecipePage = () => {
     name.required = true;
     name.className = "form-control mb-3";
 
-    const description = document.createElement("input");
-    description.type = "text";
+    const description = document.createElement("textarea");
     description.id = "description";
     description.required = true;
-    description.placeholder = "Description de la recette";
+    description.rows = 5;
+    description.placeholder = "Étapes de la réalisation";
     description.className = "form-control mb-3";
 
     const duration = document.createElement("input");
     duration.type = "number";
-    duration.placeholder = "Durée de la recette"
+    duration.placeholder = "Temps de la réalisation (min)"
     duration.min = 1;
     duration.id = "duration";
     duration.required = true;
@@ -43,30 +42,14 @@ const AddRecipePage = () => {
     qty_people.required = true;
     qty_people.className = "form-control mb-3";
 
-    /*  
-    *    Author: Shrinivas Pai
-    *    Date: answered Sep 3 '15 at 14:53
-    *    Availability: https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today
-    */
-
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-    if (mm < 10) {
-        mm = '0' + mm;
-    } 
-    today = yyyy + '-' + mm + '-' + dd;
+    const dateTimeNow = new Date();
+    const date = dateTimeNow.toLocaleDateString('en-GB');
+    console.log(dateTimeNow.toLocaleDateString('en-GB'));
 
     const creation_date = document.createElement("input");
-    creation_date.type = "date";
+    creation_date.type = "hidden";
     creation_date.id = "creation_date";
-    creation_date.required = true;
-    creation_date.className = "form-control mb-3";
-    creation_date.setAttribute("max", today);
+    creation_date.value = date;
 
     const ingredients_list = document.createElement("input");
     ingredients_list.type = "text";
@@ -98,6 +81,7 @@ const AddRecipePage = () => {
     form.addEventListener("submit", onSubmit);
     pageDiv.appendChild(form);
 }
+
  const onSubmit = async (e) => {
     e.preventDefault();
     let user = getUserSessionData();
@@ -108,7 +92,6 @@ const AddRecipePage = () => {
     const creation_date = document.getElementById("creation_date");
     const ingredients_list = document.getElementById("ingredients_list");
     const username = document.getElementById("username");
-    console.log("in");
     console.log("forms values : ", name.value, description.value, duration.value, qty_people.value, creation_date.value, ingredients_list.value, username.value);
     try {
         const options = {
