@@ -19,9 +19,9 @@ const ProfilePage = () => {
         return response.json();
       }).then((recipes) => {
         if(recipes.length === 0){
-          page.innerHTML = "<h2>Vous n'avez encore ajoutez aucune recette.</h2>";
+          page.innerHTML = "<h3>Vous n'avez encore ajoutez aucune recette.</h3>";
         } else{
-          page.innerHTML = "<h2>Mes recettes :</h2>";
+          page.innerHTML = "<h3>Mes recettes :</h3>";
         }
         console.log(recipes)
         recipes.forEach((recipe) => {
@@ -65,6 +65,7 @@ const ProfilePage = () => {
 };
 
 const onDeleteRecipe = (e) => {
+  e.preventDefault();
   const targetedRecipeId = e.target.data;
   const user = getUserSessionData();
   console.log(targetedRecipeId);
@@ -82,7 +83,9 @@ const onDeleteRecipe = (e) => {
           "Error code : " + response.status + " : " + response.statusText
         );
       return response.json();
-    })
+    }) 
+    // re-render the page after a delete
+    .then(ProfilePage())
     .catch((err) => onError(err));
 };
 
