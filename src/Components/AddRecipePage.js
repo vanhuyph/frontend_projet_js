@@ -2,147 +2,150 @@ import { getUserSessionData } from "../utils/session.js";
 import { RedirectUrl } from "./Router.js";
 
 const AddRecipePage = () => {
+  const user = getUserSessionData();
+  if (!user) return RedirectUrl("/login");
+  const page = document.querySelector("#page");
 
-    let user = getUserSessionData();
-    if (!user) return RedirectUrl("/login");
-    console.log(user);
-    // reset #page div
-    const pageDiv = document.querySelector("#page");
-    pageDiv.innerHTML = "";
+  let form = `
+   <div class="container-fluid">
+      <div class="container m-5">
+        <div class="row ">
+          <article
+            class="
+              col-xs-12 col-sm-12 col-md-12 col-lg12"
+          >
+            <form>
+            <div class="form-group">
+              <input class="form-control" id="name" type="text" name="name" placeholder="Nom de la recette" required />
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="description" type="text" name="description" placeholder="Description de la recette" required />
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="duration" type="number" name="duration" placeholder="Durée de la recette" required />
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="qty_people" type="number" name="qty_people" placeholder="Quantité pour les personnes" required />
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" placeholder="Ingrédients de la recette" required />
+            </div>
+         
+            <button class="btn btn-danger" id="btnForm" type="submit">Ajouter</button>
+            </form>
+          </article>
+        </div>
+      </div>
+    </div>
+  `;
+  page.innerHTML = form;
+  let btnForm = document.getElementById("btnForm");
+  btnForm.addEventListener("click", onSubmit);
+};
 
-    // create the "Add a recipe" form
-    const form = document.createElement("form");
-    form.className = "p-5";
-    const name = document.createElement("input");
-    name.type = "text";
-    name.id = "name";
-    name.placeholder = "Nom de la recette";
-    name.required = true;
-    name.className = "form-control mb-3";
+const onSubmit = (e) => {
+  e.preventDefault();
+  const user = getUserSessionData();
 
-    const description = document.createElement("input");
-    description.type = "text";
-    description.id = "description";
-    description.required = true;
-    description.placeholder = "Description de la recette";
-    description.className = "form-control mb-3";
+  var today = new Date();
+  var date =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+  var time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = date + " " + time;
 
-    const duration = document.createElement("input");
-    duration.type = "number";
-    duration.placeholder = "Durée de la recette"
-    duration.min = 1;
-    duration.id = "duration";
-    duration.required = true;
-    duration.className = "form-control mb-3";
+  let recipe = {
+    name: document.getElementById("name").value,
+    description: document.getElementById("description").value,
+    duration: document.getElementById("duration").value,
+    qty_people: document.getElementById("qty_people").value,
+    creation_date: dateTime,
+    ingredients_list: document.getElementById("ingredients_list").value,
+    username: user.user.username,
+  };
 
-    const qty_people = document.createElement("input");
-    qty_people.type = "number";
-    qty_people.placeholder = "Quantité pour les personnes"
-    qty_people.min = 1;
-    qty_people.id = "qty_people";
-    qty_people.required = true;
-    qty_people.className = "form-control mb-3";
+  fetch("/api/recipes/", {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    body: JSON.stringify(recipe), // body data type must match "Content-Type" header
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: user.token,
+    },
+  })
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(
+          "Error code : " + response.status + " : " + response.statusText
+        );
+      return response.json();
+    })
+    .then((data) => onRecipeAdded(data))
+    .catch((err) => onError(err));
 
-    /*  
-    *    Author: Shrinivas Pai
-    *    Date: answered Sep 3 '15 at 14:53
-    *    Availability: https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today
-    */
+  //   const name = document.getElementById("name");
+  //   const description = document.getElementById("description");
+  //   const duration = document.getElementById("duration");
+  //   const qty_people = document.getElementById("qty_people");
+  //   const creation_date = document.getElementById("creation_date");
+  //   const ingredients_list = document.getElementById("ingredients_list");
+  //   const username = document.getElementById("username");
+  //   console.log("in");
+  //   console.log(
+  //     "forms values : ",
+  //     name.value,
+  //     description.value,
+  //     duration.value,
+  //     qty_people.value,
+  //     creation_date.value,
+  //     ingredients_list.value,
+  //     username.value
+  //   );
+  //   try {
+  //     const options = {
+  //       method: "POST", // *GET, POST, PUT, DELETE, etc.
+  //       body: JSON.stringify({
+  //         name: name.value,
+  //         description: description.value,
+  //         duration: duration.value,
+  //         qty_people: qty_people.value,
+  //         creation_date: creation_date.value,
+  //         ingredients_list: ingredients_list.value,
+  //         username: username.value,
+  //       }), // body data type must match "description-Type" header
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: user.token,
+  //       },
+  //     };
 
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-    if (mm < 10) {
-        mm = '0' + mm;
-    } 
-    today = yyyy + '-' + mm + '-' + dd;
+  //     const response = await fetch("/api/recipes", options); // fetch return a promise => we wait for the response
 
-    const creation_date = document.createElement("input");
-    creation_date.type = "date";
-    creation_date.id = "creation_date";
-    creation_date.required = true;
-    creation_date.className = "form-control mb-3";
-    creation_date.setAttribute("max", today);
+  //     if (!response.ok) {
+  //       throw new Error(
+  //         "fetch error : " + response.status + " : " + response.statusText
+  //       );
+  //     }
+  //     const recipe = await response.json(); // json() returns a promise => we wait for the data
+  //     console.log("recipe added : ", user);
 
-    const ingredients_list = document.createElement("input");
-    ingredients_list.type = "text";
-    ingredients_list.id = "ingredients_list";
-    ingredients_list.placeholder = "Ingrédients de la recette"
-    ingredients_list.required = true;
-    ingredients_list.className = "form-control mb-3";
+  //     // call the HomePage via the Router
+  //     RedirectUrl("/");
+  //   } catch (error) {
+  //     console.error("AddRecipePage::error: ", error);
+  //   }
+};
 
-    const username = document.createElement("input");
-    username.type = "hidden";
-    username.id = "username";
-    username.value = user.user.username;
-    
-    console.log(user.user.username);
-   
-    const submit = document.createElement("input");
-    submit.value = "Ajouter";
-    submit.type = "submit";
-    submit.className = "btn btn-danger";
-    form.appendChild(name);
-    form.appendChild(description);
-    form.appendChild(duration);
-    form.appendChild(qty_people);
-    form.appendChild(creation_date);
-    form.appendChild(ingredients_list);
-    form.appendChild(username);
-    form.appendChild(submit);
+const onRecipeAdded = (data) => {
+  alert("La recette : " + data.name + " a bien été ajoutée");
+  RedirectUrl("/");
+};
 
-    form.addEventListener("submit", onSubmit);
-    pageDiv.appendChild(form);
-}
- const onSubmit = async (e) => {
-    e.preventDefault();
-    let user = getUserSessionData();
-    const name = document.getElementById("name");
-    const description = document.getElementById("description");
-    const duration = document.getElementById("duration");
-    const qty_people = document.getElementById("qty_people");
-    const creation_date = document.getElementById("creation_date");
-    const ingredients_list = document.getElementById("ingredients_list");
-    const username = document.getElementById("username");
-    console.log("in");
-    console.log("forms values : ", name.value, description.value, duration.value, qty_people.value, creation_date.value, ingredients_list.value, username.value);
-    try {
-        const options = {
-            method: "POST", // *GET, POST, PUT, DELETE, etc.
-            body: JSON.stringify({
-                name: name.value,
-                description: description.value,
-                duration: duration.value,
-                qty_people: qty_people.value,
-                creation_date: creation_date.value,
-                ingredients_list: ingredients_list.value,
-                username: username.value
-            }), // body data type must match "description-Type" header
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: user.token,
-            },
-        };
-
-        const response = await fetch("/api/recipes", options); // fetch return a promise => we wait for the response
-
-        if (!response.ok) {
-            throw new Error(
-                "fetch error : " + response.status + " : " + response.statusText
-            );
-        }
-        const recipe = await response.json(); // json() returns a promise => we wait for the data
-        console.log("recipe added : ", user);
-
-        // call the HomePage via the Router
-        RedirectUrl("/");
-    } catch (error) {
-        console.error("AddRecipePage::error: ", error);
-    }
-}
+const onError = (err) => {
+  let errorMessage = "Error";
+  if (err.message) {
+    errorMessage = err.message;
+  }
+  RedirectUrl("/error", errorMessage);
+};
 
 export default AddRecipePage;

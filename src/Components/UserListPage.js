@@ -87,8 +87,13 @@ const onDeleteUser = (e) => {
         );
       return response.json();
     })
-    .then((data) => UserListPage())
+    .then((data) => onUserDeleted(data))
     .catch((err) => onError(err));
+};
+
+const onUserDeleted = (data) => {
+  alert("L'utilisateur : " + data.username + " a bien été supprimé");
+  RedirectUrl("/users");
 };
 
 const onError = (err) => {

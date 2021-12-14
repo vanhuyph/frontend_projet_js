@@ -25,7 +25,7 @@ const Navbar = () => {
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
         <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
-        <a class="nav-item nav-link" href="#" data-uri="/users">List users</a> 
+        <a class="nav-item nav-link" href="#" data-uri="/users">Liste utilisateurs</a> 
         <a class="nav-item nav-link" href="#" data-uri="/profile">${user.user.username}</a>
         <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
