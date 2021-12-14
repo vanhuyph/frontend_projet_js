@@ -92,7 +92,7 @@ const onDeleteUser = (e) => {
 };
 
 const onUserDeleted = (data) => {
-  alert("L'utilisateur : " + data.username + " a bien été supprimé");
+  alert("L'utilisateur : " + data.username + " a bien été supprimé !");
   RedirectUrl("/users");
 };
 

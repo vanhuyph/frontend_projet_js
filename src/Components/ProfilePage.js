@@ -4,7 +4,7 @@ import { RedirectUrl } from "./Router.js";
 const ProfilePage = () => {
   let page = document.querySelector("#page");
   page.innerHTML = `
-  <h4>Information utilisateur :</h4>
+  <h4>Vos informations :</h4>
   <div class="container" id="infoUser"></div>
   <h4>Mes recettes :</h4>
   <div class="container text-center" id="theseRecipes"></div>
@@ -13,7 +13,7 @@ const ProfilePage = () => {
   if (!user) return RedirectUrl("/login");
   let username = user.user.username;
 
-  //Obtenir toutes les recettes d'un utilisateur
+  // get all recipes from its creator
   fetch("/api/recipes/" + username, {
     method: "GET",
   })
@@ -27,7 +27,7 @@ const ProfilePage = () => {
     .then((data) => onTheseRecipesList(data))
     .catch((err) => onError(err));
 
-  //Obtenir les informations de l'utilisateur
+  // get information from the user
   fetch("/api/users/" + username, {
     method: "GET",
   })
@@ -46,7 +46,7 @@ const onInfoUser = (data) => {
   console.log(data);
   let infoUser = document.querySelector("#infoUser");
   let table = `
-  <div> Username : ${data.username}</div>
+  <div> Pseudo : ${data.username}</div>
   <div> Email : ${data.email}</div>
   `;
   infoUser.innerHTML = table;
@@ -64,13 +64,13 @@ const onTheseRecipesList = (data) => {
     <div class="border" id="${recipe.id}">
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
-      Duration : ${recipe.duration} <br>
-      Nombre personnes : ${recipe.qty_people} <br>
-      Date : ${recipe.creation_date} <br>
-      Liste ingrédients : ${recipe.ingredients_list} <br>
-      Pseudo : ${recipe.username} <br>
-      <button type="button" class="btn btn-danger btn-sm" id="btnDeleteRecipe">Supprimer</button>
+      Duration (min) : ${recipe.duration} <br>
+      Recette pour ${recipe.qty_people} personnes <br>
+      Date de création : ${recipe.creation_date} <br>
+      Liste d'ingrédients : ${recipe.ingredients_list} <br>
+      Créateur : ${recipe.username} <br>
       <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe">Modifier</button>
+      <button type="button" class="btn btn-danger btn-sm" id="btnDeleteRecipe">Supprimer</button>
     </div>`;
   });
 
@@ -106,7 +106,7 @@ const onDeleteRecipe = (e) => {
 };
 
 const onDeletedRecipes = (data) => {
-  alert("Votre recette " + data.name + " a bien été supprimée");
+  alert("Votre recette " + data.name + " a bien été supprimée !");
   RedirectUrl("/profile");
 };
 

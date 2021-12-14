@@ -50,7 +50,7 @@ const HomePage = async (search) => {
     `;
   generateRecipes.innerHTML = generateDisplay;
 
-  //Bouton pour généré une recette aleatoirement.
+  // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
   btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
 };
@@ -72,11 +72,11 @@ const onRecipesListPage = (data) => {
     <div class="border">
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
-      Duration : ${recipe.duration} <br>
-      Nombre personnes : ${recipe.qty_people} <br>
-      Date : ${recipe.creation_date} <br>
-      Liste ingrédients : ${recipe.ingredients_list} <br>
-      Pseudo : ${recipe.username} <br>
+      Duration (min) : ${recipe.duration} <br>
+      Recette pour ${recipe.qty_people} personnes <br>
+      Date de création : ${recipe.creation_date} <br>
+      Liste d'ingrédients : ${recipe.ingredients_list} <br>
+      Créateur : ${recipe.username} <br>
     </div>`;
   });
 
@@ -118,17 +118,17 @@ const onGenerateRecipesDisplay = (data) => {
     <div class="border">
         Nom : ${data.name} <br>
         Description : ${data.description} <br>
-        Duration : ${data.duration} <br>
-        Nombre personnes : ${data.qty_people} <br>
-        Date : ${data.creation_date} <br>
-        Liste ingrédients : ${data.ingredients_list} <br>
-        Pseudo : ${data.username} <br>
+        Duration (min) : ${data.duration} <br>
+        Recette pour ${data.qty_people} personnes <br>
+        Date de création : ${data.creation_date} <br>
+        Liste d'ingrédients : ${data.ingredients_list} <br>
+        Créateur : ${data.username} <br>
         <button type="button" class="btn btn-primary btn-sm" id="btnReduire">Réduire recette</button>
     </div>
   </div>`;
   generateRecipes.innerHTML = aRecipe;
 
-  //Bouton pour généré une recette aleatoirement.
+  // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
   btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
 
