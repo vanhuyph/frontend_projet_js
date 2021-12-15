@@ -43,7 +43,6 @@ const ProfilePage = () => {
 };
 
 const onInfoUser = (data) => {
-  console.log(data);
   let infoUser = document.querySelector("#infoUser");
   let table = `
   <div> Username : ${data.username}</div>
@@ -53,7 +52,6 @@ const onInfoUser = (data) => {
 };
 
 const onTheseRecipesList = (data) => {
-  console.log(data);
   let recipesList = document.querySelector("#theseRecipes");
   if (!data) return;
 
@@ -85,7 +83,6 @@ const onTheseRecipesList = (data) => {
 
 const onDeleteRecipe = (e) => {
   let recipeId = e.target.parentElement.id;
-  console.log(recipeId);
   const user = getUserSessionData();
 
   fetch("/api/recipes/" + recipeId, {

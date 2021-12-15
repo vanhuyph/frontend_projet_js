@@ -6,6 +6,7 @@ import RegisterPage from "./RegisterPage.js";
 import AddRecipePage from "./AddRecipePage.js";
 import ProfilePage from "./ProfilePage.js";
 import UserListPage from "./UserListPage.js";
+import SeeRecipePage from "./SeeRecipePage.js";
 
 const routes = {
   "/": HomePage,
@@ -16,6 +17,7 @@ const routes = {
   "/addrecipe": AddRecipePage,
   "/profile": ProfilePage,
   "/users": UserListPage,
+  "/seerecipe": SeeRecipePage,
 };
 
 let navBar = document.querySelector("#navBar");
