@@ -1,28 +1,38 @@
 import { RedirectUrl } from "./Router.js";
 
-// function loadingTimeAnimation() {
-//   const myObject = {
-//       'Génération de la recette aléatoire en cours': '0%'
-//     }
-//     anime({
-//       targets: myObject,
-//       "Génération de la recette aléatoire en cours": '100%',
-//       easing: 'linear',
-//       duration: 1000,
-//       round: 1,
-//       update: function() {
-//         page.innerHTML = JSON.stringify(myObject);
-//       }
-//     });
-// }
+let page = document.querySelector("#page");
+let homepage = `
+    <div class="container text-center" id="generateRecipes"></div>
+    <div class="container text-center" id="loadingTime"></div>
+    <div class="container text-center" id="recipesList"></div>
+`;
+
+/***************************************************************************************
+*    Title: AnimeJS documentation
+*    Availability: https://animejs.com/documentation/#JSobjProp
+*
+***************************************************************************************/
+function loadingTimeAnimation() {
+  console.log("Animation");
+  let loadingDiv = document.querySelector("#loadingTime");
+  const myObject = {
+      'Génération de la recette aléatoire en cours': '0%'
+    }
+    anime({
+      targets: myObject,
+      "Génération de la recette aléatoire en cours": '100%',
+      easing: 'linear',
+      duration: 1500,
+      round: 1,
+      update: function() {
+        console.log("Display loading");
+        loadingDiv.innerHTML = JSON.stringify(myObject);
+      }
+    });
+}
 
 const HomePage = async (search) => {
-  let page = document.querySelector("#page");
-  page.innerHTML = `
-  <div class="container text-center" id="generateRecipes"></div>
-  <div class="container text-center" id="recipesList"></div>
-  `;
-
+  page.innerHTML = homepage;
   if (search === undefined) {
     fetch("/api/recipes", {
       method: "GET",
@@ -68,16 +78,13 @@ const HomePage = async (search) => {
 
   // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
-  btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
-  // btnGenerateRecipe.addEventListener("click", () =>{
-  //   loadingTimeAnimation();
-  //   setTimeout(() => {
-      
-      
-  //   }, 1500);
-    
-
-  // });
+  // btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
+  btnGenerateRecipe.addEventListener("click", () =>{
+    loadingTimeAnimation();
+    setTimeout(() => {
+      onGenerateRecipe();
+    }, 2200);
+  });
 };
 
 const onRecipesListPage = (data) => {
@@ -110,7 +117,7 @@ const onRecipesListPage = (data) => {
   recipesList.innerHTML = list;
 
   let btnSearch = document.getElementById("btnSearch");
-  btnSearch.addEventListener("click", (onSearchRecipe) => {
+  btnSearch.addEventListener("click", () => {
     let search = document.getElementById("search").value;
     RedirectUrl("/", search);
   });
@@ -126,7 +133,8 @@ const onRecipeDetail = (e) => {
 };
 
 const onGenerateRecipe = () => {
-  
+  let loadingDiv = document.querySelector("#loadingTime");
+  loadingDiv.innerHTML = "";
   fetch("/api/recipes/random", {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
   })
@@ -166,7 +174,13 @@ const onGenerateRecipesDisplay = (data) => {
 
   // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
-  btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
+  // btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
+  btnGenerateRecipe.addEventListener("click", () =>{
+    loadingTimeAnimation();
+    setTimeout(() => {
+      onGenerateRecipe();
+    }, 2200);
+  });
 
   let btnReduceRecipe = document.getElementById("btnReduce");
   btnReduceRecipe.addEventListener("click", () => {

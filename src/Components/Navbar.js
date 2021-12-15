@@ -9,7 +9,6 @@ const Navbar = () => {
     // User is authenticated and is not an admin
     navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-    <a class="navbar-brand" href="/" data-uri="/"><img src="${favIcon}" width="65" height="65" class="img-fluid"></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -23,11 +22,10 @@ const Navbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
-        <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
-         
-        <a class="nav-item nav-link" href="#" data-uri="/profile">Mon profil</a>
-        <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
+        <a class="nav-link" href="#" data-uri="/">Accueil</a>
+        <a class="nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
+        <a class="nav-link" href="#" data-uri="/profile">Mon profil</a>
+        <a class="nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
     </div>
   </nav>`;
@@ -35,7 +33,6 @@ const Navbar = () => {
     //User is authenticated and is an admin
     navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-    <a class="navbar-brand" href="/" data-uri="/"><img src="${favIcon}" width="65" height="65" class="img-fluid"></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -49,18 +46,17 @@ const Navbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
-        <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
-        <a class="nav-item nav-link" href="#" data-uri="/users">Liste d'utilisateurs</a> 
-        <a class="nav-item nav-link" href="#" data-uri="/profile">Mon profil</a>
-        <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
+        <a class="nav-link" href="#" data-uri="/">Accueil</a>
+        <a class="nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
+        <a class="nav-link" href="#" data-uri="/users">Liste d'utilisateurs</a> 
+        <a class="nav-link" href="#" data-uri="/profile">Mon profil</a>
+        <a class="nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
     </div>
   </nav>`;
   } else {
     //User is not authenticated
     navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-  <a class="navbar-brand" href="/" data-uri="/"><img src="${favIcon}" width="65" height="65" class="img-fluid"></a>
   <button
     class="navbar-toggler"
     type="button"
@@ -74,9 +70,9 @@ const Navbar = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
-      <a class="nav-item nav-link" href="#" data-uri="/register">S'inscrire</a>
-      <a class="nav-item nav-link" href="#" data-uri="/login">Se connecter</a> 
+      <a class="nav-link" href="#" data-uri="/">Accueil</a>
+      <a class="nav-link" href="#" data-uri="/register">S'inscrire</a>
+      <a class="nav-link" href="#" data-uri="/login">Se connecter</a> 
     </div>
   </div>
   </nav>`;
