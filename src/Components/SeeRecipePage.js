@@ -26,7 +26,7 @@ const onDisplayRecipe = (recipe) => {
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
       Duration (min) : ${recipe.duration} <br>
-      Pour ${recipe.qty_people} personnes <br>
+      Recette pour ${recipe.qty_people} personnes <br>
       Date de création : ${recipe.creation_date} <br>
       Liste d'ingrédients : ${recipe.ingredients_list} <br>
       Créateur : ${recipe.username} <br>

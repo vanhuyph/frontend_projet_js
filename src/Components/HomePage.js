@@ -1,20 +1,20 @@
 import { RedirectUrl } from "./Router.js";
 
-function loadingTimeAnimation() {
-  const myObject = {
-      'Génération de la recette aléatoire en cours': '0%'
-    }
-    anime({
-      targets: myObject,
-      "Génération de la recette aléatoire en cours": '100%',
-      easing: 'linear',
-      duration: 1000,
-      round: 1,
-      update: function() {
-        page.innerHTML = JSON.stringify(myObject);
-      }
-    });
-}
+// function loadingTimeAnimation() {
+//   const myObject = {
+//       'Génération de la recette aléatoire en cours': '0%'
+//     }
+//     anime({
+//       targets: myObject,
+//       "Génération de la recette aléatoire en cours": '100%',
+//       easing: 'linear',
+//       duration: 1000,
+//       round: 1,
+//       update: function() {
+//         page.innerHTML = JSON.stringify(myObject);
+//       }
+//     });
+// }
 
 const HomePage = async (search) => {
   let page = document.querySelector("#page");
@@ -68,6 +68,7 @@ const HomePage = async (search) => {
 
   // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
+  btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
   // btnGenerateRecipe.addEventListener("click", () =>{
   //   loadingTimeAnimation();
   //   setTimeout(() => {
@@ -77,7 +78,6 @@ const HomePage = async (search) => {
     
 
   // });
-  btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
 };
 
 const onRecipesListPage = (data) => {
@@ -103,7 +103,6 @@ const onRecipesListPage = (data) => {
       Liste d'ingrédients : ${recipe.ingredients_list} <br>
       Créateur : ${recipe.username} <br>
       <button type="button" class="btn btn-primary btn-sm" id="btnDetail">Voir détails</button>
-
     </div>`;
   });
 
