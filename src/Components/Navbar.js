@@ -25,9 +25,6 @@ const Navbar = () => {
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
         <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
-<<<<<<< HEAD
-        <a class="nav-item nav-link" href="#" data-uri="/users">List users</a> 
-=======
          
         <a class="nav-item nav-link" href="#" data-uri="/profile">Mon profil</a>
         <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
@@ -55,7 +52,6 @@ const Navbar = () => {
         <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
         <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
         <a class="nav-item nav-link" href="#" data-uri="/users">Liste d'utilisateurs</a> 
->>>>>>> 04ed319a1d3bc1b38facf7ccfd5f61eb0de80672
         <a class="nav-item nav-link" href="#" data-uri="/profile">Mon profil</a>
         <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
