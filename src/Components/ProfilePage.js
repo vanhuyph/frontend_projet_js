@@ -107,7 +107,7 @@ const onDeleteRecipe = (e) => {
 
 const onDeletedRecipes = (data) => {
   alert("Votre recette " + data.name + " a bien été supprimée !");
-  RedirectUrl("/profile");
+  document.getElementById(data.id).remove();
 };
 
 const onError = (err) => {

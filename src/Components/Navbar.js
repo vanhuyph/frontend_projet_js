@@ -1,4 +1,5 @@
 import { getUserSessionData } from "../utils/session.js";
+import favIcon from "../img/favicon.png";
 
 let navBar = document.querySelector("#navBar");
 // destructuring assignment
@@ -9,8 +10,8 @@ const Navbar = () => {
     // User is authenticated and is not an admin
     navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-    <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
-    ><button
+    <a class="navbar-brand" href="/" data-uri="/"><img src="${favIcon}" width="65" height="65" class="img-fluid"></a>
+    <button
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
@@ -35,8 +36,8 @@ const Navbar = () => {
     //User is authenticated and is an admin
     navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-    <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
-    ><button
+    <a class="navbar-brand" href="/" data-uri="/"><img src="${favIcon}" width="65" height="65" class="img-fluid"></a>
+    <button
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
@@ -60,8 +61,8 @@ const Navbar = () => {
   } else {
     //User is not authenticated
     navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-  <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
-  ><button
+  <a class="navbar-brand" href="/" data-uri="/"><img src="${favIcon}" width="65" height="65" class="img-fluid"></a>
+  <button
     class="navbar-toggler"
     type="button"
     data-toggle="collapse"

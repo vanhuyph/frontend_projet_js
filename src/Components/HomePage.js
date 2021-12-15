@@ -1,5 +1,21 @@
 import { RedirectUrl } from "./Router.js";
 
+function loadingTimeAnimation() {
+  const myObject = {
+      'Génération de la recette aléatoire en cours': '0%'
+    }
+    anime({
+      targets: myObject,
+      "Génération de la recette aléatoire en cours": '100%',
+      easing: 'linear',
+      duration: 1000,
+      round: 1,
+      update: function() {
+        page.innerHTML = JSON.stringify(myObject);
+      }
+    });
+}
+
 const HomePage = async (search) => {
   let page = document.querySelector("#page");
   page.innerHTML = `
@@ -52,6 +68,15 @@ const HomePage = async (search) => {
 
   // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
+  // btnGenerateRecipe.addEventListener("click", () =>{
+  //   loadingTimeAnimation();
+  //   setTimeout(() => {
+      
+      
+  //   }, 1500);
+    
+
+  // });
   btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
 };
 
@@ -91,6 +116,7 @@ const onRecipesListPage = (data) => {
 };
 
 const onGenerateRecipe = () => {
+  
   fetch("/api/recipes/random", {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
   })
@@ -114,7 +140,7 @@ const onGenerateRecipesDisplay = (data) => {
       <h4>Recette aléatoire : </h4>
       <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
   </div>
-  <div class="container">
+  <div class="container" id="container-reduce">
     <div class="border">
         Nom : ${data.name} <br>
         Description : ${data.description} <br>
@@ -133,8 +159,8 @@ const onGenerateRecipesDisplay = (data) => {
   btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
 
   let btnReduceRecipe = document.getElementById("btnReduce");
-  btnReduceRecipe.addEventListener("click", (onReduceRecipe) => {
-    RedirectUrl("/");
+  btnReduceRecipe.addEventListener("click", () => {
+    document.getElementById("container-reduce").innerHTML = "";
   });
 };
 

@@ -14,7 +14,7 @@ const AddRecipePage = () => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
-            <form action="#">
+            <form action>
             <div class="form-group">
               <input class="form-control" id="name" type="text" name="name" placeholder="Nom de la recette" required />
             </div>
