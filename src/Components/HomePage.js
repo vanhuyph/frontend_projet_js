@@ -123,7 +123,7 @@ const onGenerateRecipesDisplay = (data) => {
         Date de création : ${data.creation_date} <br>
         Liste d'ingrédients : ${data.ingredients_list} <br>
         Créateur : ${data.username} <br>
-        <button type="button" class="btn btn-primary btn-sm" id="btnReduire">Réduire recette</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btnReduce">Réduire recette</button>
     </div>
   </div>`;
   generateRecipes.innerHTML = aRecipe;
@@ -132,8 +132,8 @@ const onGenerateRecipesDisplay = (data) => {
   let btnGenerateRecipe = document.getElementById("btnGenerate");
   btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
 
-  let btnReduireRecipe = document.getElementById("btnReduire");
-  btnReduireRecipe.addEventListener("click", (onReduceRecipe) => {
+  let btnReduceRecipe = document.getElementById("btnReduce");
+  btnReduceRecipe.addEventListener("click", (onReduceRecipe) => {
     RedirectUrl("/");
   });
 };

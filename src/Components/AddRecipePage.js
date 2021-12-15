@@ -14,7 +14,7 @@ const AddRecipePage = () => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
-            <form>
+            <form action="#">
             <div class="form-group">
               <input class="form-control" id="name" type="text" name="name" placeholder="Nom de la recette" required />
             </div>
@@ -24,7 +24,7 @@ const AddRecipePage = () => {
             <div class="form-group">
               <input class="form-control" id="duration" type="number" min=1 name="duration" placeholder="Durée de la réalisation (min)" required />
             </div>
-            <div class="form-group">
+            <div class="form-group" >
               <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" placeholder="Quantité pour les personnes" required />
             </div>
             <div class="form-group">
