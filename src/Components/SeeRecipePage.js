@@ -1,7 +1,7 @@
 import { RedirectUrl } from "./Router.js";
 
 const SeeRecipePage = (id) => {
-  //Obtenir toutes les infos d'une recette
+  // get all information of a recipe
   fetch("/api/recipes/seerecipe/" + id, {
     method: "GET",
     headers: {
@@ -25,11 +25,11 @@ const onDisplayRecipe = (recipe) => {
     <div class="border" id="${recipe.id}">
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
-      Duration : ${recipe.duration} <br>
-      Nombre personnes : ${recipe.qty_people} <br>
-      Date : ${recipe.creation_date} <br>
-      Liste ingrédients : ${recipe.ingredients_list} <br>
-      Pseudo : ${recipe.username} <br>
+      Duration (min) : ${recipe.duration} <br>
+      Pour ${recipe.qty_people} personnes <br>
+      Date de création : ${recipe.creation_date} <br>
+      Liste d'ingrédients : ${recipe.ingredients_list} <br>
+      Créateur : ${recipe.username} <br>
     </div>`;
 
   page.innerHTML = aRecipe;
