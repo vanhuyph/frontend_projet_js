@@ -4,11 +4,9 @@ const Navbar = () => {
   let navBar = document.querySelector("#navBar");
   let navbar;
   let user = getUserSessionData();
-
-  if (user) {
-    if (user.user.admin) {
-      //User is authenticated
-      navbar = `
+  if (user && user.user.admin === false) {
+    // User is authenticated and is not an admin
+    navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
     <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
     ><button
@@ -26,15 +24,15 @@ const Navbar = () => {
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
         <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
-        <a class="nav-item nav-link" href="#" data-uri="/users">Liste utilisateurs</a> 
-        <a class="nav-item nav-link" href="#" data-uri="/profile">${user.user.username}</a>
+         
+        <a class="nav-item nav-link" href="#" data-uri="/profile">Mon profil</a>
         <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
     </div>
   </nav>`;
-    } else {
-      //User is authenticated
-      navbar = `
+  } else if (user && user.user.admin === true) {
+    //User is authenticated and is an admin
+    navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
     <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
     ><button
@@ -52,12 +50,12 @@ const Navbar = () => {
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="#" data-uri="/">Accueil</a>
         <a class="nav-item nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a>
-        <a class="nav-item nav-link" href="#" data-uri="/profile">${user.user.username}</a>
+        <a class="nav-item nav-link" href="#" data-uri="/users">Liste d'utilisateurs</a> 
+        <a class="nav-item nav-link" href="#" data-uri="/profile">Mon profil</a>
         <a class="nav-item nav-link" href="#" data-uri="/logout">Déconnexion</a>
       </div>
     </div>
   </nav>`;
-    }
   } else {
     //User is not authenticated
     navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
@@ -82,6 +80,7 @@ const Navbar = () => {
   </div>
   </nav>`;
   }
+
   return (navBar.innerHTML = navbar);
 };
 export default Navbar;
