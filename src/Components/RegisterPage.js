@@ -34,8 +34,7 @@ let registerPage = `
         </div>
       </div>
 </div>
-            
-  `;
+`;
 
 const RegisterPage = () => {
   let page = document.querySelector("#page");

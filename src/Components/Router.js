@@ -3,9 +3,9 @@ import ErrorPage from "./ErrorPage.js";
 import LoginPage from "./LoginPage.js";
 import LogoutPage from "./LogoutPage.js";
 import RegisterPage from "./RegisterPage.js";
-import AddRecipePage from "./AddRecipePage.js"
+import AddRecipePage from "./AddRecipePage.js";
 import ProfilePage from "./ProfilePage.js";
-
+import UserListPage from "./UserListPage.js";
 
 const routes = {
   "/": HomePage,
@@ -14,7 +14,8 @@ const routes = {
   "/logout": LogoutPage,
   "/register": RegisterPage,
   "/addrecipe": AddRecipePage,
-  "/profile": ProfilePage
+  "/profile": ProfilePage,
+  "/users": UserListPage,
 };
 
 let navBar = document.querySelector("#navBar");

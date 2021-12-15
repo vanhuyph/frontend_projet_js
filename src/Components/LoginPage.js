@@ -47,7 +47,6 @@ const LoginPage = () => {
 
 const onLogin = (e) => {
   e.preventDefault();
-
   let user = {
     username: document.getElementById("username").value,
     password: document.getElementById("password").value,
@@ -71,7 +70,6 @@ const onLogin = (e) => {
 };
 
 const onUserLogin = (userData) => {
-  console.log("onUserLogin:", userData);
   const user = { ...userData, isAutenticated: true };
   setUserSessionData(user);
   // re-render the navbar for the authenticated user
