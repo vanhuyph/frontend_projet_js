@@ -88,13 +88,13 @@ const onRecipesListPage = (data) => {
   <h4>Recettes populaires : </h4>
   <form class="d-flex">
         <input class="form-control form-outline-primary me-2 " type="search" placeholder="Search" aria-label="Search" id="search">
-        <button class="btn btn-outline-primary" type="submit" id="btnSearch">Search</button>
+        <button class="btn btn-outline-primary" type="button" id="btnSearch">Search</button>
   </form>
   `;
 
   data.forEach((recipe) => {
     list += `
-    <div class="border">
+    <div class="border" id="${recipe.id}">
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
       Duration (min) : ${recipe.duration} <br>
@@ -102,6 +102,8 @@ const onRecipesListPage = (data) => {
       Date de création : ${recipe.creation_date} <br>
       Liste d'ingrédients : ${recipe.ingredients_list} <br>
       Créateur : ${recipe.username} <br>
+      <button type="button" class="btn btn-primary btn-sm" id="btnDetail">Voir détails</button>
+
     </div>`;
   });
 
@@ -113,6 +115,15 @@ const onRecipesListPage = (data) => {
     let search = document.getElementById("search").value;
     RedirectUrl("/", search);
   });
+
+  document.querySelectorAll("#btnDetail").forEach((item) => {
+    item.addEventListener("click", onRecipeDetail);
+  });
+};
+
+const onRecipeDetail = (e) => {
+  let recipeId = e.target.parentElement.id;
+  RedirectUrl("/seerecipe", recipeId);
 };
 
 const onGenerateRecipe = () => {

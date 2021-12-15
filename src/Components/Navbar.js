@@ -1,9 +1,8 @@
 import { getUserSessionData } from "../utils/session.js";
 import favIcon from "../img/favicon.png";
 
-let navBar = document.querySelector("#navBar");
-// destructuring assignment
 const Navbar = () => {
+  let navBar = document.querySelector("#navBar");
   let navbar;
   let user = getUserSessionData();
   if (user && user.user.admin === false) {
@@ -82,6 +81,7 @@ const Navbar = () => {
   </div>
   </nav>`;
   }
+
   return (navBar.innerHTML = navbar);
 };
 export default Navbar;
