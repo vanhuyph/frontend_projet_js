@@ -5,7 +5,7 @@ const ProfilePage = () => {
   let page = document.querySelector("#page");
   page.innerHTML = `
   <h4>Vos informations :</h4>
-  <div class="container" id="infoUser"></div>
+  <div id="infoUser"></div>
   <h4>Mes recettes :</h4>
   <div class="container text-center" id="theseRecipes"></div>
   `;

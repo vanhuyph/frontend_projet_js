@@ -3,8 +3,8 @@ import { RedirectUrl } from "./Router.js";
 let page = document.querySelector("#page");
 let homepage = `
     <div class="container text-center">
-    <h4>Recette aléatoire : </h4>
-    <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
+      <h4>Recette aléatoire : </h4>
+      <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
     </div>
     <div class="container text-center" id="generateRecipes"></div>
     <div class="container text-center" id="recipesList"></div>
@@ -53,7 +53,6 @@ const HomePage = async (search) => {
       .then((data) => onRecipesListPage(data))
       .catch((err) => onError(err));
   } else {
-    console.log("Search");
     fetch("/api/recipes/" + search, {
       method: "GET",
       headers: {
@@ -86,10 +85,10 @@ const onRecipesListPage = (data) => {
   if (!data) return;
 
   let list = `<div class="container">
-  <h4>Recettes populaires : </h4>
+  <h4>Liste des recettes : </h4>
   <form class="d-flex">
-        <input class="form-control form-outline-primary me-2 " type="search" placeholder="Search" aria-label="Search" id="search">
-        <button class="btn btn-outline-primary" type="button" id="btnSearch">Search</button>
+        <input class="form-control form-outline-primary me-2 " type="search" placeholder="Rechercher une recette" aria-label="Search" id="search">
+        <button class="btn btn-outline-primary" type="submit" id="btnSearch">Rechercher</button>
   </form>
   `;
 

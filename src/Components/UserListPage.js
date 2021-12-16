@@ -7,7 +7,7 @@ const UserListPage = () => {
   const user = getUserSessionData();
 
   if (!user.user.admin) {
-    RedirectUrl("/error", "Resource not authorized. Please login as admin.");
+    RedirectUrl("/error", "Ressource non autorisée");
   } else
     fetch("/api/users", {
       method: "GET",
