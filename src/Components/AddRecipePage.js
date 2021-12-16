@@ -14,28 +14,31 @@ const AddRecipePage = () => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
+          <h2>Ajouter une recette :</h2>
             <form id="formAddRecipe">
-            <div class="form-group">
-              <label for="labelName">Nom</label>
+            <div class="form-input">
+              <h5>Nom</h5>
               <input class="form-control" id="name" type="text" name="name" oninvalid="this.setCustomValidity('Entrer le nom de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
-            <div class="form-group">
-              <label for="labelDescription">Description</label>
+            <div class="form-input">
+              <h5 for="labelDescription">Description</h5>
               <input class="form-control" id="description" rows="5" type="text" name="description" oninvalid="this.setCustomValidity('Entrer la description de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
-            <div class="form-group">
-              <label for="labelDuration">Durée (min)</label>
-              <input class="form-control" id="duration" type="number" min=1 name="duration" oninvalid="this.setCustomValidity('Entrer la durée de la recette')" oninput="this.setCustomValidity('')" required />
+            <div class="form-input">
+              <h5>Durée (min)</h5>
+              <input class="form-control" id="duration" type="number" min=1 name="duration" oninvalid="this.setCustomValidity('Entrer une durée valide')" oninput="this.setCustomValidity('')" required />
             </div>
-            <div class="form-group" >
-              <label for="labelQty">Quantité pour les personnes</label>
+            <div class="form-input" >
+              <h5>Quantité pour les personnes</h5>
               <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" oninvalid="this.setCustomValidity('Entrer la quantité pour les personnes')" oninput="this.setCustomValidity('')" required />
             </div>
-            <div class="form-group">
-              <label for="labelIngredients">Ingrédients</label>
+            <div class="form-input">
+              <h5>Ingrédients</h5>
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
-            <button class="btn btn-danger" id="btnForm" type="submit">Ajouter</button>
+            <div class="form-submit">
+              <input class="form-control" id="btnForm" type="submit" value="Ajouter">
+            </div>
             </form>
           </article>
         </div>
