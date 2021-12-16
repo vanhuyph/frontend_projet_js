@@ -2,8 +2,11 @@ import { RedirectUrl } from "./Router.js";
 
 let page = document.querySelector("#page");
 let homepage = `
+    <div class="container text-center">
+    <h4>Recette aléatoire : </h4>
+    <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
+    </div>
     <div class="container text-center" id="generateRecipes"></div>
-    <div class="container text-center" id="loadingTime"></div>
     <div class="container text-center" id="recipesList"></div>
 `;
 
@@ -14,7 +17,7 @@ let homepage = `
 ***************************************************************************************/
 function loadingTimeAnimation() {
   console.log("Animation");
-  let loadingDiv = document.querySelector("#loadingTime");
+  let generateRecipes = document.querySelector("#generateRecipes");
   const myObject = {
       'Génération de la recette aléatoire en cours': '0%'
     }
@@ -26,7 +29,7 @@ function loadingTimeAnimation() {
       round: 1,
       update: function() {
         console.log("Display loading");
-        loadingDiv.innerHTML = JSON.stringify(myObject);
+        generateRecipes.innerHTML = JSON.stringify(myObject);
       }
     });
 }
@@ -67,19 +70,9 @@ const HomePage = async (search) => {
       .then((data) => onRecipesListPage(data))
       .catch((err) => onError(err));
   }
-
-  let generateRecipes = document.querySelector("#generateRecipes");
-  let generateDisplay = `
-    <div class="container text-center">
-      <h4>Recette aléatoire : </h4>
-      <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
-    </div>
-    `;
-  generateRecipes.innerHTML = generateDisplay;
-
+  
   // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
-  // btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
   btnGenerateRecipe.addEventListener("click", () =>{
     loadingTimeAnimation();
     setTimeout(() => {
@@ -133,8 +126,6 @@ const onRecipeDetail = (e) => {
 };
 
 const onGenerateRecipe = () => {
-  let loadingDiv = document.querySelector("#loadingTime");
-  loadingDiv.innerHTML = "";
   fetch("/api/recipes/random", {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
   })
@@ -154,10 +145,6 @@ const onGenerateRecipesDisplay = (data) => {
   if (!data) return;
 
   let aRecipe = `
-  <div class="container text-center">
-      <h4>Recette aléatoire : </h4>
-      <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
-  </div>
   <div class="container" id="container-reduce">
     <div class="border">
         Nom : ${data.name} <br>
@@ -171,17 +158,6 @@ const onGenerateRecipesDisplay = (data) => {
     </div>
   </div>`;
   generateRecipes.innerHTML = aRecipe;
-
-  // button generating a recipe randomly
-  let btnGenerateRecipe = document.getElementById("btnGenerate");
-  // btnGenerateRecipe.addEventListener("click", onGenerateRecipe);
-  btnGenerateRecipe.addEventListener("click", () =>{
-    loadingTimeAnimation();
-    setTimeout(() => {
-      onGenerateRecipe();
-    }, 2200);
-  });
-
   let btnReduceRecipe = document.getElementById("btnReduce");
   btnReduceRecipe.addEventListener("click", () => {
     document.getElementById("container-reduce").innerHTML = "";
