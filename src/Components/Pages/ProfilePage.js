@@ -1,5 +1,5 @@
-import { getUserSessionData } from "../utils/session.js";
-import { RedirectUrl } from "./Router.js";
+import { getUserSessionData } from "../../utils/session.js";
+import { RedirectUrl } from "../Router/Router.js";
 
 const ProfilePage = () => {
   let page = document.querySelector("#page");

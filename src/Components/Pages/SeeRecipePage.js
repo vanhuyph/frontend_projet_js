@@ -1,4 +1,4 @@
-import { RedirectUrl } from "./Router.js";
+import { RedirectUrl } from "../Router/Router.js";
 
 const SeeRecipePage = (id) => {
   // get all information of a recipe

@@ -1,6 +1,6 @@
-import { RedirectUrl } from "./Router.js";
-import Navbar from "./Navbar.js";
-import { removeSessionData } from "../utils/session.js";
+import { RedirectUrl } from "../Router/Router.js";
+import Navbar from "../NavBar/Navbar.js";
+import { removeSessionData } from "../../utils/session.js";
 
 const LogoutPage = () => {
   removeSessionData();

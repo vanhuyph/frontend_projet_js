@@ -1,12 +1,12 @@
-import HomePage from "./HomePage.js";
-import ErrorPage from "./ErrorPage.js";
-import LoginPage from "./LoginPage.js";
-import LogoutPage from "./LogoutPage.js";
-import RegisterPage from "./RegisterPage.js";
-import AddRecipePage from "./AddRecipePage.js";
-import ProfilePage from "./ProfilePage.js";
-import UserListPage from "./UserListPage.js";
-import SeeRecipePage from "./SeeRecipePage.js";
+import HomePage from "../Pages/HomePage.js";
+import ErrorPage from "../Pages/ErrorPage.js";
+import LoginPage from "../Pages/LoginPage.js";
+import LogoutPage from "../Pages/LogoutPage.js";
+import RegisterPage from "../Pages/RegisterPage.js";
+import AddRecipePage from "../Pages/AddRecipePage.js";
+import ProfilePage from "../Pages/ProfilePage.js";
+import UserListPage from "../Pages/UserListPage.js";
+import SeeRecipePage from "../Pages/SeeRecipePage.js";
 
 const routes = {
   "/": HomePage,

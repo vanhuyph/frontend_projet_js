@@ -1,4 +1,4 @@
-import { RedirectUrl } from "./Router.js";
+import { RedirectUrl } from "../Router/Router.js";
 
 let page = document.querySelector("#page");
 let homepage = `

@@ -1,4 +1,4 @@
-import { getUserSessionData } from "../utils/session.js";
+import { getUserSessionData } from "../../utils/session.js";
 
 const Navbar = () => {
   let navBar = document.querySelector("#navBar");
