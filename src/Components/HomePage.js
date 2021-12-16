@@ -50,6 +50,7 @@ const HomePage = async (search) => {
       .then((data) => onRecipesListPage(data))
       .catch((err) => onError(err));
   } else {
+    console.log("Search");
     fetch("/api/recipes/" + search, {
       method: "GET",
       headers: {
@@ -115,7 +116,6 @@ const onRecipesListPage = (data) => {
 
   list += `</div>`;
   recipesList.innerHTML = list;
-
   let btnSearch = document.getElementById("btnSearch");
   btnSearch.addEventListener("click", () => {
     let search = document.getElementById("search").value;
