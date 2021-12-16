@@ -53,7 +53,7 @@ const onUserList = (data) => {
               <tr id="${element.id}">
                 <td >${element.username}</td>
                 <td >${element.email}</td>
-                <td ><button type="button" class="btn btn-primary" id="btnDeleteUser">Delete</button></td>
+                <td ><button type="button" class="btn btn-danger" id="btnDeleteUser">Delete</button></td>
               </tr>`;
     }
   });

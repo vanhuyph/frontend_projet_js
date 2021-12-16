@@ -14,21 +14,26 @@ const AddRecipePage = () => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
-            <form action>
+            <form id="formAddRecipe">
             <div class="form-group">
-              <input class="form-control" id="name" type="text" name="name" placeholder="Nom de la recette" required />
+              <label for="labelName">Nom</label>
+              <input class="form-control" id="name" type="text" name="name" oninvalid="this.setCustomValidity('Entrer le nom de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-group">
-              <textarea class="form-control" id="description" rows="5" type="text" name="description" placeholder="Étapes de la réalisation" required /></textarea>
+              <label for="labelDescription">Description</label>
+              <input class="form-control" id="description" rows="5" type="text" name="description" oninvalid="this.setCustomValidity('Entrer la description de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
             <div class="form-group">
-              <input class="form-control" id="duration" type="number" min=1 name="duration" placeholder="Durée de la réalisation (min)" required />
+              <label for="labelDuration">Durée (min)</label>
+              <input class="form-control" id="duration" type="number" min=1 name="duration" oninvalid="this.setCustomValidity('Entrer la durée de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-group" >
-              <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" placeholder="Quantité pour les personnes" required />
+              <label for="labelQty">Quantité pour les personnes</label>
+              <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" oninvalid="this.setCustomValidity('Entrer la quantité pour les personnes')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-group">
-              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" placeholder="Ingrédients" required />
+              <label for="labelIngredients">Ingrédients</label>
+              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <button class="btn btn-danger" id="btnForm" type="submit">Ajouter</button>
             </form>
@@ -38,8 +43,8 @@ const AddRecipePage = () => {
     </div>
   `;
   page.innerHTML = form;
-  let btnForm = document.getElementById("btnForm");
-  btnForm.addEventListener("click", onSubmit);
+  let formAddRecipe = document.getElementById("formAddRecipe");
+  formAddRecipe.addEventListener("submit", onSubmit);
 };
 
 const onSubmit = (e) => {
@@ -58,7 +63,7 @@ const onSubmit = (e) => {
     ingredients_list: document.getElementById("ingredients_list").value,
     username: user.user.username,
   };
-
+  
   fetch("/api/recipes/", {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     body: JSON.stringify(recipe), // body data type must match "Content-Type" header

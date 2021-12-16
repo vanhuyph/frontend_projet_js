@@ -1,5 +1,4 @@
 import { getUserSessionData } from "../utils/session.js";
-import favIcon from "../img/favicon.png";
 
 const Navbar = () => {
   let navBar = document.querySelector("#navBar");

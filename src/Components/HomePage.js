@@ -97,7 +97,7 @@ const onRecipesListPage = (data) => {
     <div class="border" id="${recipe.id}">
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
-      Duration (min) : ${recipe.duration} <br>
+      Durée (min) : ${recipe.duration} <br>
       Recette pour ${recipe.qty_people} personnes <br>
       Date de création : ${recipe.creation_date} <br>
       Liste d'ingrédients : ${recipe.ingredients_list} <br>
@@ -148,7 +148,7 @@ const onGenerateRecipesDisplay = (data) => {
     <div class="border">
         Nom : ${data.name} <br>
         Description : ${data.description} <br>
-        Duration (min) : ${data.duration} <br>
+        Durée (min) : ${data.duration} <br>
         Recette pour ${data.qty_people} personnes <br>
         Date de création : ${data.creation_date} <br>
         Liste d'ingrédients : ${data.ingredients_list} <br>
