@@ -8,7 +8,7 @@ const AddRecipePage = () => {
 
   let form = `
    <div class="container-fluid">
-      <div class="container m-5">
+      <div class="container mt-4">
         <div class="row ">
           <article
             class="
@@ -17,23 +17,23 @@ const AddRecipePage = () => {
           <h2>Ajouter une recette :</h2>
             <form id="formAddRecipe">
             <div class="form-input">
-              <h5>Nom</h5>
+            <label for="name">Nom</label>
               <input class="form-control" id="name" type="text" name="name" oninvalid="this.setCustomValidity('Entrer le nom de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
-              <h5 for="labelDescription">Description</h5>
+              <label for="description">Description</label>
               <input class="form-control" id="description" rows="5" type="text" name="description" oninvalid="this.setCustomValidity('Entrer la description de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
             <div class="form-input">
-              <h5>Durée (min)</h5>
+              <label for="duration">Durée (min)</label>
               <input class="form-control" id="duration" type="number" min=1 name="duration" oninvalid="this.setCustomValidity('Entrer une durée valide')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input" >
-              <h5>Quantité pour les personnes</h5>
+              <label for="qty">Quantité pour les personnes</label>
               <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" oninvalid="this.setCustomValidity('Entrer la quantité pour les personnes')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
-              <h5>Ingrédients</h5>
+              <label for="ingredients">Ingrédients</label>
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-submit">

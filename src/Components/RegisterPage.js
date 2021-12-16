@@ -1,40 +1,39 @@
 import { RedirectUrl } from "./Router.js";
 import Navbar from "./Navbar.js";
 import { setUserSessionData } from "../utils/session.js";
+import ImageLogin from "../img/login.jpg";
 
 /* In a template literal, the ` (backtick), \ (backslash), and $ (dollar sign) characters should be 
 escaped using the escape character \ if they are to be included in their template value. 
 By default, all escape sequences in a template literal are ignored.*/
 let registerPage = `
-<div class="container-fluid">
-      <div class="container m-5">
-        <div class="row ">
-          <article
-            class="
-              col-xs-12 col-sm-12 col-md-12 col-lg12"
-          >
+<div class="container-register">
+  <div class="container-in">
+    <div class="container-form">
             <form>
-              <div class="form-group">
-                <label for="email">Pseudo</label>
-                <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre pseudo" required="" />
+              <h2>S'inscrire</h2>
+              <div class="form-lign-register">
+                <label for="username">Pseudo</label>
+                <input class="form-input" id="username" type="text" name="username" oninvalid="this.setCustomValidity('Entrer votre pseudo')" oninput="this.setCustomValidity('')" required="" />
               </div>
-              <div class="form-group">
+              <div class="form-lign-register">
                 <label for="email">Email</label>
-                <input class="form-control" id="email" type="text" name="email" placeholder="Entrez votre email" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,4})+\$" />
+                <input class="form-input" id="email" type="text" name="email" oninvalid="this.setCustomValidity('Respecter le format')" onchange="try{setCustomValidity('')}catch(e){}" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,4})+\$" />
               </div>
-              <div class="form-group">
+              <div class="form-lign-register">
                 <label for="password">Mot de passe</label>
-                <input class="form-control" id="password" type="password" name="password" placeholder="Entrez votre mot de passe" required="" pattern=".*[A-Z]+.*" />
+                <input class="form-input" id="password" type="password" name="password" oninvalid="this.setCustomValidity('Entrer votre mot de passe')" oninput="this.setCustomValidity('')" required="" pattern=".*[A-Za-z]+.*" />
               </div>
-              <button class="btn btn-primary" id="btn" type="submit">S'inscrire</button>
-              
+              <button class="form-button" id="btn" type="submit">S'INSCRIRE</button>
               <div class="alert alert-danger mt-2 d-none" id="messageBoard"></div><span id="errorMessage"></span>
             </form>
-          </article>
-        </div>
-      </div>
-</div>
-`;
+            </div>
+            <div class="container-image">
+      <img src="${ImageLogin}"/>
+    </div>
+    </div>
+<div>
+  `;
 
 const RegisterPage = () => {
   let page = document.querySelector("#page");
