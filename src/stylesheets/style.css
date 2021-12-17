@@ -249,3 +249,23 @@ input:valid {
 .form-submit input:hover {
   background: #e99d3a;
 }
+
+/* admin zone */
+.container-lg{
+  text-align: center;
+  margin-top: 75px;
+}
+
+.btnDeleteUser {
+  font-size: small;
+  padding: 0;
+  margin: 10px 10px;
+  width: 50%;
+  height: 40px;
+  color: white;
+  border: 1px solid transparent;
+  background: #ff0000;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+  margin-top: 3px;
+}

@@ -34,35 +34,32 @@ const onUserList = (data) => {
   if (!data) return;
 
   let table = `
-  <div class="container-fluid">
-    <div class="container m-5">
-      <div id="tableUsers" class="table-responsive mt-3">
-      <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>`;
+  <div class="container-lg">
+  <table id="table-admin" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Utilisateur</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    `;
 
   data.forEach((element) => {
     if (!element.admin) {
       table += `
               <tr id="${element.id}">
-                <td >${element.username}</td>
-                <td >${element.email}</td>
-                <td ><button type="button" class="btn btn-danger" id="btnDeleteUser">Delete</button></td>
+                <td>${element.username}</td>
+                <td>${element.email}</td>
+                <td><button type="button" class="btnDeleteUser" id="btnDeleteUser">Supprimer</button></td>
               </tr>`;
     }
   });
 
   table += `</tbody>
       </table>
-      </div>
-    </div>
-  </div>`;
+      </div>`;
   page.innerHTML = table;
 
   document.querySelectorAll("#btnDeleteUser").forEach((item) => {
@@ -92,7 +89,7 @@ const onDeleteUser = (e) => {
 };
 
 const onUserDeleted = (data) => {
-  alert("L'utilisateur : " + data.username + " a bien été supprimé !");
+  alert("L'utilisateur " + data.username + " a bien été supprimé !");
   document.getElementById(data.id).remove();
 };
 
@@ -103,7 +100,7 @@ const onError = (err) => {
     errorMessage = err.message;
   } else errorMessage = err;
   if (errorMessage.includes("jwt expired")) {
-    errorMessage += "<br> Please logout first, then login.";
+    errorMessage += "<br> Veuillez vous reconnecter.";
   }
   RedirectUrl("/error", errorMessage);
 };
