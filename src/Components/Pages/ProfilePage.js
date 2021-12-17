@@ -4,10 +4,35 @@ import { RedirectUrl } from "../Router/Router.js";
 const ProfilePage = () => {
   let page = document.querySelector("#page");
   page.innerHTML = `
-  <h4>Vos informations :</h4>
-  <div id="infoUser"></div>
-  <h4>Mes recettes :</h4>
-  <div class="container text-center" id="theseRecipes"></div>
+  <div class="container mt-4">
+  <h4>Mes informations</h4>
+		<div class="main-body">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="d-flex flex-column align-items-center text-center">
+								<img src="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1-300x300.jpg" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<div class="mt-3">
+									<h4 id="user-username"></h4>
+									<p id="user-email" class="text-secondary mb-1"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+        <div class="col-lg-8">
+					<div class="card">
+						<div class="card-body">
+							<div class="row mb-3 text-center" id="theseRecipes">
+				
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
   `;
   const user = getUserSessionData();
   if (!user) return RedirectUrl("/login");
@@ -43,46 +68,100 @@ const ProfilePage = () => {
 };
 
 const onInfoUser = (data) => {
-  let infoUser = document.querySelector("#infoUser");
-  let table = `
-  <div>Pseudo : ${data.username}</div>
-  <div>Email : ${data.email}</div>
-  `;
-  infoUser.innerHTML = table;
+  let userUsername = document.querySelector("#user-username");
+  let userEmail = document.querySelector("#user-email");
+  let profileUsername = `<div>Pseudo : ${data.username}</div>`;
+  let profileMail = `<div>Email : ${data.email}</div>`;
+  userUsername.innerHTML = profileUsername;
+  userEmail.innerHTML = profileMail;
 };
 
 const onTheseRecipesList = (data) => {
   let recipesList = document.querySelector("#theseRecipes");
-  if (!data) return;
+  if(data.length === 0 || !data){
+    console.log("in");
+    let emptyList = `<div class="container"><h2 class="mb-3">N'hésitez pas à ajouter vos propres recettes</h2>`;
+    recipesList.innerHTML = emptyList;
+    return;
+  };
 
-  let list = `<div class="container">`;
+  let list = `<div class="container"><h2 class="mb-3">Mes recettes</h2>`;
 
   data.forEach((recipe) => {
     list += `
     <div class="border" id="${recipe.id}">
-      Nom : ${recipe.name} <br>
-      Description : ${recipe.description} <br>
-      Durée (min) : ${recipe.duration} <br>
-      Recette pour ${recipe.qty_people} personnes <br>
-      Date de création : ${recipe.creation_date} <br>
-      Liste d'ingrédients : ${recipe.ingredients_list} <br>
-      Créateur : ${recipe.username} <br>
-      <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe">Modifier</button>
-      <button type="button" class="btn btn-danger btn-sm" id="btnDeleteRecipe">Supprimer</button>
-    </div>`;
+      <div class="row mb-3 mt-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Nom :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <p>${recipe.name}</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Description :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <p>${recipe.description}</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Durée (min) :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <p>${recipe.duration}</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Quantité :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <p>${recipe.qty_people} personnes</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Date de création :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <p>${recipe.creation_date}</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Ingrédients :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <p>${recipe.ingredients_list}</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0"></h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe">Modifier</button>
+          <button type="button" class="btn btn-danger btn-sm" id="btnDeleteRecipe" value="${recipe.id}">Supprimer</button>
+        </div>
+      </div>
+    </div>
+    `;
   });
-
   list += `</div>`;
-
   recipesList.innerHTML = list;
 
   document.querySelectorAll("#btnDeleteRecipe").forEach((item) => {
+    console.log("Delete recipe id ", item.value);
     item.addEventListener("click", onDeleteRecipe);
   });
 };
 
 const onDeleteRecipe = (e) => {
-  let recipeId = e.target.parentElement.id;
+  let recipeId = e.currentTarget.value;
+  console.log(recipeId);
   const user = getUserSessionData();
 
   fetch("/api/recipes/" + recipeId, {
