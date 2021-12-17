@@ -30,6 +30,7 @@ const AddRecipePage = () => {
             <div class="form-group">
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" placeholder="Ingrédients" required />
             </div>
+            <input type="file" name="" id="image">
             <button class="btn btn-danger" id="btnForm" type="submit">Ajouter</button>
             </form>
           </article>
@@ -47,7 +48,7 @@ const onSubmit = (e) => {
   const user = getUserSessionData();
 
   var today = new Date();
-  var date = today.toLocaleDateString('en-GB');
+  var date = today.toLocaleDateString("en-GB");
 
   let recipe = {
     name: document.getElementById("name").value,
