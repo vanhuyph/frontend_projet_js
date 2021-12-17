@@ -253,7 +253,7 @@ input:valid {
 /* admin zone */
 .container-lg{
   text-align: center;
-  margin-top: 75px;
+  margin-top: 30px;
 }
 
 .btnDeleteUser {
@@ -268,4 +268,8 @@ input:valid {
   border-radius: 10px;
   transition: background 0.2s ease-in;
   margin-top: 3px;
+}
+
+#admin-h2{
+  margin-bottom: 30px;
 }

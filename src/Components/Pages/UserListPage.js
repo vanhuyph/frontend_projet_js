@@ -35,6 +35,7 @@ const onUserList = (data) => {
 
   let table = `
   <div class="container-lg">
+  <h2 id="admin-h2">Panel de contrôle</h2>
   <table id="table-admin" class="table table-bordered table-hover">
   <thead>
     <tr>
