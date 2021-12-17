@@ -4,33 +4,34 @@ By default, all escape sequences in a template literal are ignored.*/
 import { getUserSessionData, setUserSessionData } from "../utils/session.js";
 import { RedirectUrl } from "./Router.js";
 import Navbar from "./Navbar.js";
+import ImageLogin from "../img/login.jpg";
 
 //Form login page
 let loginPage = `
-<div class="container-fluid">
-      <div class="container m-5">
-        <div class="row ">
-          <article
-            class="
-              col-xs-12 col-sm-12 col-md-12 col-lg12"
-          >
-            <form>
-            <div class="form-group">
-              <label for="email">Pseudo</label>
-              <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre pseudo" required="" />
-            </div>
-            <div class="form-group">
-              <label for="password">Mot de passe</label>
-              <input class="form-control" id="password" type="password" name="password" placeholder="Entrez votre mot de passe" required="" pattern=".*[A-Z]+.*" />
-            </div>
-            <button class="btn btn-primary" id="btn" type="submit">Connexion</button>
-            <!-- Create an alert component with bootstrap that is not displayed by default-->
-            <div class="alert alert-danger mt-2 d-none" id="messageBoard"></div>
-            </form>
-          </article>
+<div class="container-login">
+  <div class="container-in">
+    <div class="container-form">
+      <form>
+        <h2>Connexion</h2>
+        <div class="form-lign">
+          <label for="username">Pseudo</label>
+          <input class="form-input" id="username" type="text" name="username" oninvalid="this.setCustomValidity('Entrer votre pseudo')" oninput="this.setCustomValidity('')" required="" />
         </div>
-      </div>
-</div>
+        <div class="form-lign">
+          <label for="password">Mot de passe</label>
+          <input class="form-input" id="password" type="password" name="password" oninvalid="this.setCustomValidity('Entrer votre mot de passe')" oninput="this.setCustomValidity('')" required="" pattern=".*[A-Za-z]+.*" />
+        </div>
+        <button class="form-button" type="submit">CONNEXION</button>
+        <a class="register-link" href="/register">Pas encore de compte ?</a>
+        <!-- Create an alert component with bootstrap that is not displayed by default-->
+        <div class="alert alert-danger mt-2 d-none" id="messageBoard"></div>
+      </form>     
+    </div>
+    <div class="container-image">
+      <img src="${ImageLogin}"/>
+    </div>
+    </div>
+<div>
 `;
 
 const LoginPage = () => {
@@ -80,7 +81,7 @@ const onUserLogin = (userData) => {
 const onError = (err) => {
   let messageBoard = document.querySelector("#messageBoard");
   let errorMessage = "";
-  if (err.message.includes("401")) errorMessage = "Wrong username or password.";
+  if (err.message.includes("401")) errorMessage = "Pseudo/mot de passe incorrect.";
   else errorMessage = err.message;
   messageBoard.innerText = errorMessage;
   // show the messageBoard div (add relevant Bootstrap class)

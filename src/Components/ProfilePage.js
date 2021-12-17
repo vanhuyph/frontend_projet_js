@@ -5,7 +5,7 @@ const ProfilePage = () => {
   let page = document.querySelector("#page");
   page.innerHTML = `
   <h4>Vos informations :</h4>
-  <div class="container" id="infoUser"></div>
+  <div id="infoUser"></div>
   <h4>Mes recettes :</h4>
   <div class="container text-center" id="theseRecipes"></div>
   `;
@@ -45,8 +45,8 @@ const ProfilePage = () => {
 const onInfoUser = (data) => {
   let infoUser = document.querySelector("#infoUser");
   let table = `
-  <div> Pseudo : ${data.username}</div>
-  <div> Email : ${data.email}</div>
+  <div>Pseudo : ${data.username}</div>
+  <div>Email : ${data.email}</div>
   `;
   infoUser.innerHTML = table;
 };
@@ -62,7 +62,7 @@ const onTheseRecipesList = (data) => {
     <div class="border" id="${recipe.id}">
       Nom : ${recipe.name} <br>
       Description : ${recipe.description} <br>
-      Duration (min) : ${recipe.duration} <br>
+      Durée (min) : ${recipe.duration} <br>
       Recette pour ${recipe.qty_people} personnes <br>
       Date de création : ${recipe.creation_date} <br>
       Liste d'ingrédients : ${recipe.ingredients_list} <br>
@@ -104,7 +104,7 @@ const onDeleteRecipe = (e) => {
 
 const onDeletedRecipes = (data) => {
   alert("Votre recette " + data.name + " a bien été supprimée !");
-  RedirectUrl("/profile");
+  document.getElementById(data.id).remove();
 };
 
 const onError = (err) => {

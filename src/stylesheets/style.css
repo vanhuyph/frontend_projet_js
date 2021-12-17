@@ -5,6 +5,11 @@ body {
 
 a {
   color: #00b7ff;
+  text-decoration: none;
+}
+
+#page{
+  height: 90%;
 }
 
 /* CSS to deal with constraint validation styles */
@@ -14,4 +19,233 @@ input:invalid {
 
 input:valid {
   border: 2px solid green;
+}
+
+.nav-bar{
+  height: 60px;
+  padding-top: 8px;
+  border-bottom: 1px solid orange
+}
+
+.nav-bar a{
+  color: black;
+  text-decoration: none;
+}
+
+.nav-bar ul{
+  text-align: left;
+}
+
+.nav-bar li{
+  display: inline-block;
+}
+
+.nav-bar li a{
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar li a::after{
+  content: "";
+  display: block;
+  width: 0px;
+  margin: 0 auto 0 0;
+  height: 2px;
+  border-radius: 2px;
+  background: orange;
+  transition: width 0.5s ease-out;
+}
+
+.nav-bar li a:hover::after{
+  width: 100%;
+}
+
+/* Login/register form */
+.container-login{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-link{
+  margin: 20px 10px;
+}
+
+.container-register{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-in{
+  border: 1px solid #b9b9b9;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  box-shadow: 1px 1px 50px 1px#dadada;
+}
+
+.container-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container-image img{
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.container-form{
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container-form form{
+  padding-top: 25px;
+  width: 300px;
+  height: 100%;
+}
+
+.container-form form h2{
+  margin-left: 10px;
+}
+
+.form-lign{
+  margin: 25px 10px;
+}
+
+.form-lign label{
+  display: block;
+}
+
+.form-lign input{
+  display: block;
+  margin: 0;
+  padding: 5px;
+  padding-left: 15px;
+  border: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 100%;
+  transition: border 0.5s ease-in;
+}
+
+.form-lign input:hover{
+  border: 1px solid #dadada;
+}
+
+.form-lign input:focus{
+  outline: 0;
+  border: 1px solid #cecccc;
+}
+
+.form-lign-register{
+  margin: 25px 10px;
+}
+
+.form-lign-register label{
+  display: block;
+}
+
+.form-lign-register input{
+  display: block;
+  margin: 0;
+  padding: 5px;
+  padding-left: 15px;
+  border: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 100%;
+  transition: border 0.5s ease-in;
+}
+
+.form-lign-register input:hover{
+  border: 1px solid #dadada;
+}
+
+.form-lign-register input:focus{
+  outline: 0;
+  border: 1px solid #cecccc;
+}
+
+.form-button {
+  font-size: small;
+  padding: 0;
+  margin: 25px 10px;
+  width: 93.5%;
+  height: 38px;
+  color: white;
+  border: 1px solid transparent;
+  background: #f8a73f;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+  margin-top: 3px;
+}
+
+.form-button:hover {
+  background: #e99d3a;
+}
+
+/* Add recipe form */
+.formAddRecipe{
+  margin: auto;
+  width: 750px;
+}
+
+.form-input{
+  margin-top: 30px;
+}
+
+.form-input input{
+  display: block;
+  margin: 0;
+  padding: 5px;
+  padding-left: 15px;
+  border: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 100%;
+  transition: border 0.5s ease-in;
+}
+
+.form-input input:hover{
+  border: 1px solid #dadada;
+}
+
+.form-input input:focus{
+  outline: 0;
+  border: 1px solid #cecccc;
+}
+
+.form-submit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-submit input{
+  width: 200px;
+  font-size: small;
+  padding: 0;
+  margin: 25px 10px;
+  height: 38px;
+  color: white;
+  border: 1px solid transparent;
+  background: #f8a73f;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+}
+
+.form-submit input:hover {
+  background: #e99d3a;
 }

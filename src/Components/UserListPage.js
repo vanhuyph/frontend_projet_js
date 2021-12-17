@@ -7,7 +7,7 @@ const UserListPage = () => {
   const user = getUserSessionData();
 
   if (!user.user.admin) {
-    RedirectUrl("/error", "Resource not authorized. Please login as admin.");
+    RedirectUrl("/error", "Ressource non autorisée");
   } else
     fetch("/api/users", {
       method: "GET",
@@ -53,7 +53,7 @@ const onUserList = (data) => {
               <tr id="${element.id}">
                 <td >${element.username}</td>
                 <td >${element.email}</td>
-                <td ><button type="button" class="btn btn-primary" id="btnDeleteUser">Delete</button></td>
+                <td ><button type="button" class="btn btn-danger" id="btnDeleteUser">Delete</button></td>
               </tr>`;
     }
   });
@@ -93,7 +93,7 @@ const onDeleteUser = (e) => {
 
 const onUserDeleted = (data) => {
   alert("L'utilisateur : " + data.username + " a bien été supprimé !");
-  RedirectUrl("/users");
+  document.getElementById(data.id).remove();
 };
 
 const onError = (err) => {
