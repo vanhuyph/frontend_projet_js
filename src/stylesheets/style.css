@@ -21,6 +21,7 @@ input:valid {
   border: 2px solid green;
 }
 
+/* Navbar section */
 .nav-bar{
   height: 60px;
   padding-top: 8px;
@@ -250,7 +251,7 @@ input:valid {
   background: #e99d3a;
 }
 
-/* admin zone */
+/* Admin zone page */
 .container-lg{
   text-align: center;
   margin-top: 30px;
@@ -272,4 +273,18 @@ input:valid {
 
 #admin-h2{
   margin-bottom: 30px;
+}
+
+/* About us page */
+.about-section {
+  margin: 50px;
+  padding: 45px;
+  text-align: left;
+  border: 1px solid transparent;
+  background-color: #e99d3a;
+  color: black;
+}
+
+.container-about{
+  padding-top: 5px;
 }

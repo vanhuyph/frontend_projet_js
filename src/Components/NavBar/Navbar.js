@@ -11,6 +11,7 @@ const Navbar = () => {
         <li><a class="nav-link" href="#" data-uri="/">Accueil</a></li>
         <li><a class="nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a></li>
         <li><a class="nav-link" href="#" data-uri="/profile">Mon profil</a></li>
+        <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/logout">Déconnexion</a></li>
       </div>
     </div>
@@ -23,6 +24,7 @@ const Navbar = () => {
         <li><a class="nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a></li>
         <li><a class="nav-link" href="#" data-uri="/users">Zone admin</a></li>
         <li><a class="nav-link" href="#" data-uri="/profile">Mon profil</a></li>
+        <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/logout">Déconnexion</a></li>
       </div>
     </div>
@@ -33,6 +35,7 @@ const Navbar = () => {
     navbar = `<nav class="nav-bar" id="navBar">
     <ul class="container-nav-link">
         <li><a class="nav-link" href="#" data-uri="/">Accueil</a></li>
+        <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/login">Connexion</a></li>
     </ul>
   </nav>`;

@@ -19,11 +19,11 @@ function loadingTimeAnimation() {
   console.log("Animation");
   let generateRecipes = document.querySelector("#generateRecipes");
   const myObject = {
-      'Génération de la recette aléatoire en cours': '0%'
+      'Génération de la recette en cours': '0%'
     }
     anime({
       targets: myObject,
-      "Génération de la recette aléatoire en cours": '100%',
+      "Génération de la recette en cours": '100%',
       easing: 'linear',
       duration: 1500,
       round: 1,
