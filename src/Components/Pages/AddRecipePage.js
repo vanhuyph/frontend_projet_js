@@ -21,8 +21,8 @@ const AddRecipePage = () => {
               <input class="form-control" id="name" type="text" name="name" oninvalid="this.setCustomValidity('Entrer le nom de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
-              <label for="description">Description</label>
-              <input class="form-control" id="description" rows="5" type="text" name="description" oninvalid="this.setCustomValidity('Entrer la description de la recette')" oninput="this.setCustomValidity('')" required />            
+              <label for="description">Description/Préparation</label>
+              <input class="form-control" id="description" rows="5" type="text" name="description" oninvalid="this.setCustomValidity('Entrer la description/préparation de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
             <div class="form-input">
               <label for="duration">Durée (min)</label>

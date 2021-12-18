@@ -27,7 +27,7 @@ const onDisplayRecipe = (recipe) => {
         <div class ="card border-dark">
         <div class="row mb-3">
           <div class="col-sm-3">
-            <h6 class="m-3">Description :</h6>
+            <h6 class="m-3">Description/Préparation :</h6>
           </div>
           <div class="col-sm-9 text-secondary">
             <p class="m-3">${recipe.description}</p>
