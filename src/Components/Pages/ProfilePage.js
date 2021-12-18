@@ -143,7 +143,7 @@ const onTheseRecipesList = (data) => {
           <h6 class="mb-0"></h6>
         </div>
         <div class="col-sm-9 text-secondary">
-          <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe" value="${recipe.id}">Modifier</button>
+          <button type="button" class="modify-button-recipe" id="btnUpdateRecipe" value="${recipe.id}">Modifier</button>
           <button class="delete-button-profile" type="submit" id="btnDeleteRecipe" value="${recipe.id}">Supprimer</button>
         </div>
       </div>

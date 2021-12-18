@@ -5,7 +5,7 @@ let page = document.querySelector("#page");
 let homepage = `
     <div class="container mt-4">
       <div class="container m-3">
-        <h4 style="margin-bottom:20px;" class="m-3">Aucune idée de quoi cuisiner ? Utiliser notre randomizer</h4>
+        <h4 style="margin-bottom:20px;" class="m-3">Aucune idée de quoi cuisiner ? Utiliser notre randomizer et laissez-vous tenter</h4>
         <div class="container m-1">
           <button type="button" class="btn-generate" id="btnGenerate">Générer</button>
         </div>

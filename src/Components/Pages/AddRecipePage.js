@@ -88,7 +88,7 @@ const onSubmit = (e) => {
 };
 
 const onRecipeAdded = (data) => {
-  alert("La recette " + data.name + " a bien ete ajoutee !");
+  alert("La recette " + data.name + " a bien été ajoutée !");
   RedirectUrl("/");
 };
 

@@ -1,7 +1,6 @@
 import { getUserSessionData } from "../../utils/session";
 import { RedirectUrl } from "../Router/Router.js";
 
-
 const UpdatePage = (id) => {
     // get all information of a recipe
   fetch("/api/recipes/seerecipe/" + id, {
@@ -32,14 +31,14 @@ const onDisplayRecipe = (data) => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
-          <h4>Modifier recette</h4>
+          <h4>Modifier votre recette</h4>
             <form id="formAddRecipe">
             <div class="form-input">
             <label for="name">Nom</label>
               <input class="form-control" id="name" type="text" name="name" value="${data.name}" oninvalid="this.setCustomValidity('Entrer le nom de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
-              <label for="description">Description</label>
+              <label for="description">Description/préparation</label>
               <input class="form-control" id="description" rows="5" type="text" name="description" value="${data.description}" oninvalid="this.setCustomValidity('Entrer la description de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
             <div class="form-input">
@@ -103,8 +102,8 @@ const onUpdateRecipe = () => {
     
 }
 
-const onRecipeUpdated = (data) => {
-    alert("votre recette : " + data.name + " a bien ete modifier");
+const onRecipeUpdated = () => {
+    alert("Votre recette a bien été modifié");
     console.log("onRecipeUpdate");
     return RedirectUrl("/profile");
 }
