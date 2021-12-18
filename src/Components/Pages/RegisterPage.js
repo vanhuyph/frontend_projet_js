@@ -22,7 +22,7 @@ let registerPage = `
               </div>
               <div class="form-lign-register">
                 <label for="password">Mot de passe</label>
-                <input class="form-input" id="password" type="password" name="password" oninvalid="this.setCustomValidity('Entrer votre mot de passe')" oninput="this.setCustomValidity('')" required="" pattern=".*[A-Za-z]+.*" />
+                <input class="form-input" id="password" type="password" name="password" oninvalid="this.setCustomValidity('Entrer votre mot de passe')" oninput="this.setCustomValidity('')" required="" pattern=".*[A-Za-z0-9]+.*" />
               </div>
               <button class="form-button" id="btn" type="submit">S'INSCRIRE</button>
               <div class="alert alert-danger mt-2 d-none" id="messageBoard"></div><span id="errorMessage"></span>

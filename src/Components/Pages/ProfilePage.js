@@ -100,7 +100,7 @@ const onTheseRecipesList = (data) => {
       </div>
       <div class="row mb-3">
         <div class="col-sm-3">
-          <h6 class="mb-0">Description :</h6>
+          <h6 class="mb-0">Description/Préparation :</h6>
         </div>
         <div class="col-sm-9 text-secondary">
           <p>${recipe.description}</p>

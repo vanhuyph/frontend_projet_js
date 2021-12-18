@@ -23,53 +23,49 @@ const onDisplayRecipe = (recipe) => {
   let page = document.querySelector("#page");
   let aRecipe = `
     <div class="container">
-      <h4 style="margin-top:30px; margin-bottom:30px;">${recipe.name}</h4>
-        <div>
+      <h4 style="margin-top:30px; margin-bottom:30px;">Recette de "${recipe.name}"</h4>
+        <div class ="card border-dark">
         <div class="row mb-3">
           <div class="col-sm-3">
-            <h6 class="mb-0">Description :</h6>
+            <h6 class="m-3">Description/Préparation :</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <p>${recipe.description}</p>
+            <p class="m-3">${recipe.description}</p>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-3">
-            <h6 class="mb-0">Durée (min) :</h6>
+            <h6 class="m-3">Durée (min) :</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <p>${recipe.duration}</p>
+            <p class="m-3">${recipe.duration}</p>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-3">
-            <h6 class="mb-0">Quantité :</h6>
+            <h6 class="m-3">Quantité :</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <p>${recipe.qty_people} personnes</p>
+            <p class="m-3">${recipe.qty_people} personnes</p>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-3">
-            <h6 class="mb-0">Date de création :</h6>
+            <h6 class="m-3">Date de création :</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <p>${recipe.creation_date}</p>
+            <p class="m-3">${recipe.creation_date}</p>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-3">
-            <h6 class="mb-0">Ingrédients :</h6>
+            <h6 class="m-3">Ingrédients :</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <p>${recipe.ingredients_list}</p>
+            <p class="m-3">${recipe.ingredients_list}</p>
           </div>
         </div>
-        <div class="row mb-3">
-          <div class="col-sm-3">
-            <h6 class="mb-0"></h6>
-          </div>
-        </div>
+        
       </div>
     </div>`;
 

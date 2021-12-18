@@ -3,11 +3,11 @@ import ImageLogin from "../../img/login.jpg";
 
 let page = document.querySelector("#page");
 let homepage = `
-    <div class="container">
-      <div class="container  m-3">
-        <h4 style="margin-bottom:20px;">Recette aléatoire : </h4>
-        <div class="container  m-1">
-          <button type="button" class="btn btn-outline-primary" id="btnGenerate">Générer</button>
+    <div class="container mt-4">
+      <div class="container m-3">
+        <h4 style="margin-bottom:20px;" class="m-3">Aucune idée de quoi cuisiner ? Utiliser notre randomizer</h4>
+        <div class="container m-1">
+          <button type="button" class="btn-generate" id="btnGenerate">Générer</button>
         </div>
       </div>
     </div>
@@ -89,19 +89,17 @@ const onRecipesListPage = (data) => {
   let recipesList = document.querySelector("#recipesList");
   if (!data) return;
 
-  let list = `<div class="container  m-3">
-  <h4>Liste des recettes : </h4>
+  let list = `<div class="container m-3">
+  <h4 class ="m-3">Liste des recettes</h4>
   <div class="row">
-    
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="searchbar">
-          <input class="search_input" type="text" name="" placeholder="Recherche..." id="search">
+          <input class="search_input" type="text" name="" placeholder="Recherche par recette ou créateur..." id="search">
           <a type="submit" class="search_icon" id="btnSearch"><i class="fas fa-search"></i></a>
         </div>
       </div>
     </div>
-
   </div>
   `;
 
@@ -117,7 +115,7 @@ const onRecipesListPage = (data) => {
           Recette pour ${recipe.qty_people} personnes <br>
           Durée (min) : ${recipe.duration} <br>
           <div style="margin-top: 15px; margin-bottom:10px; float:left;" id="${recipe.id}">
-            <button type="button" class="btn btn-outline-primary" id="btnDetail">Détails</button>
+            <button type="button" class="btn-details" id="btnDetail">Détails</button>
           </div>
 
           <div style="margin-top: 15px; text-align:right; font-size:12px; color:grey; float:right;">
@@ -184,9 +182,8 @@ const onGenerateRecipesDisplay = (data) => {
           Recette pour ${data.qty_people} personnes <br>
           Durée (min) : ${data.duration} <br>
           <div style="margin-top: 15px; margin-bottom:10px; float:left;" id="${data.id}">
-            <button type="button" class="btn btn-outline-primary" id="btnDetailGenerate">Détails</button>
-            <button type="button" class="btn btn-outline-primary" id="btnReduce">Réduire recette</button>
-
+            <button type="button" class="btn-details" id="btnDetailGenerate">Détails</button>
+            <button type="button" class="btn-reduce" id="btnReduce">Réduire</button>
           </div>
 
           <div style="margin-top: 15px; text-align:right; font-size:12px; color:grey; float:right;">

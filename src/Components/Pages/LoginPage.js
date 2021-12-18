@@ -19,7 +19,7 @@ let loginPage = `
         </div>
         <div class="form-lign">
           <label for="password">Mot de passe</label>
-          <input class="form-input" id="password" type="password" name="password" oninvalid="this.setCustomValidity('Entrer votre mot de passe')" oninput="this.setCustomValidity('')" required="" pattern=".*[A-Za-z]+.*" />
+          <input class="form-input" id="password" type="password" name="password" oninvalid="this.setCustomValidity('Entrer votre mot de passe')" oninput="this.setCustomValidity('')" required="" pattern=".*[A-Za-z0-9]+.*" />
         </div>
         <button class="form-button" type="submit">CONNEXION</button>
         <a class="register-link" href="/register">Pas encore de compte ?</a>
