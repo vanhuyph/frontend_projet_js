@@ -36,14 +36,11 @@ const AddRecipePage = () => {
               <label for="ingredients">Ingrédients</label>
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
+            <input type="file" name="" id="image"><br>
+            <img src="" id="apercuImg" height="200" alt="Aperçu de l’image...">
             <div class="form-submit">
               <input class="form-control" id="btnForm" type="submit" value="Ajouter">
             </div>
-<<<<<<< HEAD
-            <input type="file" name="" id="image">
-            <button class="btn btn-danger" id="btnForm" type="submit">Ajouter</button>
-=======
->>>>>>> 9c53709b55c4d2894ac6e033bf43a759787dfb56
             </form>
           </article>
         </div>
@@ -51,6 +48,7 @@ const AddRecipePage = () => {
     </div>
   `;
   page.innerHTML = form;
+
   let formAddRecipe = document.getElementById("formAddRecipe");
   formAddRecipe.addEventListener("submit", onSubmit);
 };
@@ -62,6 +60,9 @@ const onSubmit = (e) => {
   var today = new Date();
   var date = today.toLocaleDateString("en-GB");
 
+  // let img = document.getElementById("image");
+  // img.addEventListener("onchange", previewFile());
+
   let recipe = {
     name: document.getElementById("name").value,
     description: document.getElementById("description").value,
@@ -71,7 +72,7 @@ const onSubmit = (e) => {
     ingredients_list: document.getElementById("ingredients_list").value,
     username: user.user.username,
   };
-  
+
   fetch("/api/recipes/", {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     body: JSON.stringify(recipe), // body data type must match "Content-Type" header
@@ -103,5 +104,24 @@ const onError = (err) => {
   }
   RedirectUrl("/error", errorMessage);
 };
+
+// function previewFile() {
+//   var preview = document.getElementById("apercuImg");
+//   var file = document.getElementById("image").files[0];
+//   var reader = new FileReader();
+
+//   reader.addEventListener(
+//     "load",
+//     function () {
+//       console.log("test");
+//       preview.src = reader.result;
+//     },
+//     false
+//   );
+
+//   if (file) {
+//     reader.readAsDataURL(file);
+//   }
+// }
 
 export default AddRecipePage;

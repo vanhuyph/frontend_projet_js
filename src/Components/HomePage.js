@@ -7,31 +7,31 @@ let homepage = `
       <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
     </div>
     <div class="container text-center" id="generateRecipes"></div>
-    <div class="container text-center" id="recipesList"></div>
+    <div class="container" id="recipesList"></div>
 `;
 
 /***************************************************************************************
-*    Title: AnimeJS documentation
-*    Availability: https://animejs.com/documentation/#JSobjProp
-*
-***************************************************************************************/
+ *    Title: AnimeJS documentation
+ *    Availability: https://animejs.com/documentation/#JSobjProp
+ *
+ ***************************************************************************************/
 function loadingTimeAnimation() {
   console.log("Animation");
   let generateRecipes = document.querySelector("#generateRecipes");
   const myObject = {
-      'Génération de la recette aléatoire en cours': '0%'
-    }
-    anime({
-      targets: myObject,
-      "Génération de la recette aléatoire en cours": '100%',
-      easing: 'linear',
-      duration: 1500,
-      round: 1,
-      update: function() {
-        console.log("Display loading");
-        generateRecipes.innerHTML = JSON.stringify(myObject);
-      }
-    });
+    "Génération de la recette aléatoire en cours": "0%",
+  };
+  anime({
+    targets: myObject,
+    "Génération de la recette aléatoire en cours": "100%",
+    easing: "linear",
+    duration: 1500,
+    round: 1,
+    update: function () {
+      console.log("Display loading");
+      generateRecipes.innerHTML = JSON.stringify(myObject);
+    },
+  });
 }
 
 const HomePage = async (search) => {
@@ -69,10 +69,10 @@ const HomePage = async (search) => {
       .then((data) => onRecipesListPage(data))
       .catch((err) => onError(err));
   }
-  
+
   // button generating a recipe randomly
   let btnGenerateRecipe = document.getElementById("btnGenerate");
-  btnGenerateRecipe.addEventListener("click", () =>{
+  btnGenerateRecipe.addEventListener("click", () => {
     loadingTimeAnimation();
     setTimeout(() => {
       onGenerateRecipe();
@@ -94,15 +94,29 @@ const onRecipesListPage = (data) => {
 
   data.forEach((recipe) => {
     list += `
-    <div class="border" id="${recipe.id}">
-      Nom : ${recipe.name} <br>
-      Description : ${recipe.description} <br>
-      Durée (min) : ${recipe.duration} <br>
-      Recette pour ${recipe.qty_people} personnes <br>
-      Date de création : ${recipe.creation_date} <br>
-      Liste d'ingrédients : ${recipe.ingredients_list} <br>
-      Créateur : ${recipe.username} <br>
-      <button type="button" class="btn btn-primary btn-sm" id="btnDetail">Voir détails</button>
+    <div class=" row border m-3" style="border: 1px solid #b9b9b9; border-radius: 10px; 
+    box-shadow: 1px 1px 50px 1px#dadada; padding:10px 10px;" >
+      <article
+              class="
+                col-xs-12 col-sm-12 col-md-9 col-lg9 " 
+            >
+          <h4 style="margin-top:10px;">${recipe.name}</h4>
+          Recette pour ${recipe.qty_people} personnes <br>
+          Durée (min) : ${recipe.duration} <br>
+          <div style="margin-top: 15px; margin-bottom:10px; float:left;" id="${recipe.id}">
+            <button type="button" class="btn btn-outline-primary" id="btnDetail">Détails</button>
+          </div>
+
+          <div style="margin-top: 15px; text-align:right; font-size:12px; color:grey; float:right;">
+          Créateur : ${recipe.username} <br>
+          Date de création : ${recipe.creation_date}
+          </div>
+      </article>
+       <article
+              class="
+                col-xs-12 col-sm-12 col-md-3 col-lg3 text-center " id="${recipe.id}"
+            >
+      </article>
     </div>`;
   });
 
@@ -121,6 +135,7 @@ const onRecipesListPage = (data) => {
 
 const onRecipeDetail = (e) => {
   let recipeId = e.target.parentElement.id;
+  console.log(recipeId);
   RedirectUrl("/seerecipe", recipeId);
 };
 
