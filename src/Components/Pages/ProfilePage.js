@@ -143,7 +143,7 @@ const onTheseRecipesList = (data) => {
           <h6 class="mb-0"></h6>
         </div>
         <div class="col-sm-9 text-secondary">
-          <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe">Modifier</button>
+          <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe" value="${recipe.id}">Modifier</button>
           <button class="delete-button-profile" type="submit" id="btnDeleteRecipe" value="${recipe.id}">Supprimer</button>
         </div>
       </div>
@@ -154,10 +154,18 @@ const onTheseRecipesList = (data) => {
   recipesList.innerHTML = list;
 
   document.querySelectorAll("#btnDeleteRecipe").forEach((item) => {
-    console.log("Delete recipe id ", item.value);
     item.addEventListener("click", onDeleteRecipe);
   });
+
+  document.querySelectorAll("#btnUpdateRecipe").forEach((item) => {
+    item.addEventListener("click", onUpdate);
+  });
 };
+
+const onUpdate = (e)=>{
+  let recipeId = e.target.value;
+  RedirectUrl("/updateRecipe", recipeId);
+}
 
 const onDeleteRecipe = (e) => {
   let recipeId = e.currentTarget.value;
