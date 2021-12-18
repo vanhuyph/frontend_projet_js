@@ -14,7 +14,7 @@ const AddRecipePage = () => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
-          <h4>Ajouter une recette</h4>
+          <h4>Ajouter votre propre recette</h4>
             <form id="formAddRecipe">
             <div class="form-input">
             <label for="name">Nom</label>
@@ -36,8 +36,6 @@ const AddRecipePage = () => {
               <label for="ingredients">Ingrédients</label>
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
-            <input type="file" name="" id="image"><br>
-            <img src="" id="apercuImg" height="200" alt="Aperçu de l’image...">
             <div class="form-submit">
               <input class="form-control" id="btnForm" type="submit" value="Ajouter">
             </div>
@@ -59,9 +57,6 @@ const onSubmit = (e) => {
 
   var today = new Date();
   var date = today.toLocaleDateString("en-GB");
-
-  // let img = document.getElementById("image");
-  // img.addEventListener("onchange", previewFile());
 
   let recipe = {
     name: document.getElementById("name").value,
@@ -104,24 +99,5 @@ const onError = (err) => {
   }
   RedirectUrl("/error", errorMessage);
 };
-
-// function previewFile() {
-//   var preview = document.getElementById("apercuImg");
-//   var file = document.getElementById("image").files[0];
-//   var reader = new FileReader();
-
-//   reader.addEventListener(
-//     "load",
-//     function () {
-//       console.log("test");
-//       preview.src = reader.result;
-//     },
-//     false
-//   );
-
-//   if (file) {
-//     reader.readAsDataURL(file);
-//   }
-// }
 
 export default AddRecipePage;

@@ -307,13 +307,12 @@ table.table-bordered > tbody > tr > td {
   margin-top: 3px;
 }
 
-/*Search Bar*/
-
+/* Homepage */
 .searchbar {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #e99d3a;
+  background-color: #f8a73f;
   border-radius: 30px;
   padding: 10px;
 }
@@ -354,4 +353,41 @@ table.table-bordered > tbody > tr > td {
   border-radius: 50%;
   color: white;
   text-decoration: none;
+}
+
+.btn-generate{
+  width: 150px;
+  font-size: small;
+  padding: 0;
+  margin: 10px 10px;
+  height: 38px;
+  color: white;
+  border: 1px solid transparent;
+  background: #f8a73f;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+}
+
+.btn-details{
+  width: 100px;
+  font-size: small;
+  padding: 0;
+  height: 38px;
+  color: white;
+  border: 1px solid transparent;
+  background: #f8a73f;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+}
+
+.btn-reduce{
+  width: 100px;
+  font-size: small;
+  padding: 0;
+  height: 38px;
+  color: white;
+  border: 1px solid transparent;
+  background: #2fc5ac;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
 }
