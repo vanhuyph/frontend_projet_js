@@ -1,12 +1,17 @@
 import { RedirectUrl } from "../Router/Router.js";
+import ImageLogin from "../../img/login.jpg";
 
 let page = document.querySelector("#page");
 let homepage = `
-    <div class="container text-center">
-      <h4>Recette aléatoire : </h4>
-      <button type="button" class="btn btn-primary" id="btnGenerate">Générer</button>
+    <div class="container">
+      <div class="container  m-3">
+        <h4 style="margin-bottom:20px;">Recette aléatoire : </h4>
+        <div class="container  m-1">
+          <button type="button" class="btn btn-outline-primary" id="btnGenerate">Générer</button>
+        </div>
+      </div>
     </div>
-    <div class="container text-center" id="generateRecipes"></div>
+    <div class="container" id="generateRecipes"></div>
     <div class="container" id="recipesList"></div>
 `;
 
@@ -84,17 +89,25 @@ const onRecipesListPage = (data) => {
   let recipesList = document.querySelector("#recipesList");
   if (!data) return;
 
-  let list = `<div class="container">
+  let list = `<div class="container  m-3">
   <h4>Liste des recettes : </h4>
-  <form class="d-flex">
-        <input class="form-control form-outline-primary me-2 " type="search" placeholder="Rechercher une recette" aria-label="Search" id="search">
-        <button class="btn btn-outline-primary" type="submit" id="btnSearch">Rechercher</button>
-  </form>
+  <div class="row">
+    
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Recherche..." id="search">
+          <a type="submit" class="search_icon" id="btnSearch"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
   `;
 
   data.forEach((recipe) => {
     list += `
-    <div class=" row border m-3" style="border: 1px solid #b9b9b9; border-radius: 10px; 
+    <div class=" row m-3" style="border: 1px solid #b9b9b9; border-radius: 10px; 
     box-shadow: 1px 1px 50px 1px#dadada; padding:10px 10px;" >
       <article
               class="
@@ -116,6 +129,7 @@ const onRecipesListPage = (data) => {
               class="
                 col-xs-12 col-sm-12 col-md-3 col-lg3 text-center " id="${recipe.id}"
             >
+            <img src="${ImageLogin}" style="height:150px; border-radius:10px;">
       </article>
     </div>`;
   });
@@ -159,23 +173,44 @@ const onGenerateRecipesDisplay = (data) => {
   if (!data) return;
 
   let aRecipe = `
-  <div class="container" id="container-reduce">
-    <div class="border">
-        Nom : ${data.name} <br>
-        Description : ${data.description} <br>
-        Durée (min) : ${data.duration} <br>
-        Recette pour ${data.qty_people} personnes <br>
-        Date de création : ${data.creation_date} <br>
-        Liste d'ingrédients : ${data.ingredients_list} <br>
-        Créateur : ${data.username} <br>
-        <button type="button" class="btn btn-primary btn-sm" id="btnReduce">Réduire recette</button>
+  <div class="container m-3" id="container-reduce">
+  <div  class=" row m-3" style="border: 1px solid #b9b9b9; border-radius: 10px; 
+    box-shadow: 1px 1px 50px 1px#dadada; padding:10px 10px;" >
+      <article
+              class="
+                col-xs-12 col-sm-12 col-md-9 col-lg9 " 
+            >
+          <h4 style="margin-top:10px;">${data.name}</h4>
+          Recette pour ${data.qty_people} personnes <br>
+          Durée (min) : ${data.duration} <br>
+          <div style="margin-top: 15px; margin-bottom:10px; float:left;" id="${data.id}">
+            <button type="button" class="btn btn-outline-primary" id="btnDetailGenerate">Détails</button>
+            <button type="button" class="btn btn-outline-primary" id="btnReduce">Réduire recette</button>
+
+          </div>
+
+          <div style="margin-top: 15px; text-align:right; font-size:12px; color:grey; float:right;">
+          Créateur : ${data.username} <br>
+          Date de création : ${data.creation_date}
+          </div>
+      </article>
+       <article
+              class="
+                col-xs-12 col-sm-12 col-md-3 col-lg3 text-center " id="${data.id}"
+            >
+            <img src="${ImageLogin}" style="height:150px; border-radius:10px;">
+      </article>
     </div>
-  </div>`;
+    </div>
+    `;
   generateRecipes.innerHTML = aRecipe;
   let btnReduceRecipe = document.getElementById("btnReduce");
   btnReduceRecipe.addEventListener("click", () => {
     document.getElementById("container-reduce").innerHTML = "";
   });
+
+  let btnDetailGenerate = document.getElementById("btnDetailGenerate");
+  btnDetailGenerate.addEventListener("click", onRecipeDetail);
 };
 
 const onError = (err) => {

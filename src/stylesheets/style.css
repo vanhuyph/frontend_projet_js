@@ -293,7 +293,7 @@ table.table-bordered > tbody > tr > td {
 }
 
 /* Profile page */
-.delete-button-profile{
+.delete-button-profile {
   font-size: small;
   padding: 0;
   margin: 10px 10px;
@@ -305,4 +305,53 @@ table.table-bordered > tbody > tr > td {
   border-radius: 10px;
   transition: background 0.2s ease-in;
   margin-top: 3px;
+}
+
+/*Search Bar*/
+
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #e99d3a;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.search_input {
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+}
+
+.search_input::placeholder {
+  color: white;
+}
+
+.searchbar:hover > .search_input {
+  padding: 0 10px;
+  width: 450px;
+  caret-color: red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: white;
+  color: #e74c3c;
+}
+
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
 }
