@@ -6,12 +6,12 @@
     "https_only": true,
     "headers":{
         "/**": {
-            "Strict-Transport-Securit": "max-age=31557600"
+            "Strict-Transport-Security": "max-age=31557600"
         }
     },
     "proxies":{
-        "/api":{
-            "origin": "https://app-foodx.herokuapp.com/api/"
+        "/api/":{
+            "origin": "https://app-foodx.herokuapp.com"
         }
     }
 }
