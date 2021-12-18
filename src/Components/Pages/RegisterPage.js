@@ -1,7 +1,7 @@
-import { RedirectUrl } from "./Router.js";
-import Navbar from "./Navbar.js";
-import { setUserSessionData } from "../utils/session.js";
-import ImageLogin from "../img/login.jpg";
+import { RedirectUrl } from "../Router/Router.js";
+import Navbar from "../NavBar/Navbar.js";
+import { setUserSessionData } from "../../utils/session.js";
+import ImageLogin from "../../img/login.jpg";
 
 /* In a template literal, the ` (backtick), \ (backslash), and $ (dollar sign) characters should be 
 escaped using the escape character \ if they are to be included in their template value. 

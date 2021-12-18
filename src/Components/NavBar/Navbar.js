@@ -1,4 +1,5 @@
-import { getUserSessionData } from "../utils/session.js";
+import { getUserSessionData } from "../../utils/session.js";
+import logo from "../../img/logo.png";
 
 const Navbar = () => {
   let navBar = document.querySelector("#navBar");
@@ -8,9 +9,11 @@ const Navbar = () => {
     // User is authenticated and is not an admin
     navbar = `<nav class="nav-bar" id="navBar">
     <ul class="container-nav-link">
+        <a href="/" data-uri="/"><img src="${logo}" width="80"></a>
         <li><a class="nav-link" href="#" data-uri="/">Accueil</a></li>
         <li><a class="nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a></li>
         <li><a class="nav-link" href="#" data-uri="/profile">Mon profil</a></li>
+        <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/logout">Déconnexion</a></li>
       </div>
     </div>
@@ -19,11 +22,14 @@ const Navbar = () => {
     // User is not authenticated and is an admin
     navbar = `<nav class="nav-bar" id="navBar">
     <ul class="container-nav-link">
+        <a href="/" data-uri="/"><img src="${logo}" width="80"></a>
         <li><a class="nav-link" href="#" data-uri="/">Accueil</a></li>
         <li><a class="nav-link" href="#" data-uri="/addrecipe">Ajouter une recette</a></li>
         <li><a class="nav-link" href="#" data-uri="/users">Zone admin</a></li>
         <li><a class="nav-link" href="#" data-uri="/profile">Mon profil</a></li>
+        <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/logout">Déconnexion</a></li>
+        
       </div>
     </div>
   </nav>`;
@@ -32,7 +38,9 @@ const Navbar = () => {
     //User is not authenticated
     navbar = `<nav class="nav-bar" id="navBar">
     <ul class="container-nav-link">
+        <a href="/" data-uri="/"><img src="${logo}" width="80"></a>
         <li><a class="nav-link" href="#" data-uri="/">Accueil</a></li>
+        <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/login">Connexion</a></li>
     </ul>
   </nav>`;

@@ -1,5 +1,5 @@
-import { Router } from "./Components/Router.js";
-import Navbar from "./Components/Navbar.js";
+import { Router } from "./Components/Router/Router.js";
+import Navbar from "./Components/NavBar/Navbar.js";
 
 /* use webpack style & css loader*/
 import "./stylesheets/style.css";

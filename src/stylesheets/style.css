@@ -8,44 +8,36 @@ a {
   text-decoration: none;
 }
 
-#page{
+#page {
   height: 90%;
 }
 
-/* CSS to deal with constraint validation styles */
-input:invalid {
-  border: 2px dashed red;
-}
-
-input:valid {
-  border: 2px solid green;
-}
-
-.nav-bar{
+/* Navbar section */
+.nav-bar {
   height: 60px;
   padding-top: 8px;
-  border-bottom: 1px solid orange
+  border-bottom: 1px solid orange;
 }
 
-.nav-bar a{
+.nav-bar a {
   color: black;
   text-decoration: none;
 }
 
-.nav-bar ul{
+.nav-bar ul {
   text-align: left;
 }
 
-.nav-bar li{
+.nav-bar li {
   display: inline-block;
 }
 
-.nav-bar li a{
+.nav-bar li a {
   text-decoration: none;
   color: black;
 }
 
-.nav-bar li a::after{
+.nav-bar li a::after {
   content: "";
   display: block;
   width: 0px;
@@ -56,30 +48,30 @@ input:valid {
   transition: width 0.5s ease-out;
 }
 
-.nav-bar li a:hover::after{
+.nav-bar li a:hover::after {
   width: 100%;
 }
 
 /* Login/register form */
-.container-login{
+.container-login {
   display: flex;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
 
-.register-link{
+.register-link {
   margin: 20px 10px;
 }
 
-.container-register{
+.container-register {
   display: flex;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
 
-.container-in{
+.container-in {
   border: 1px solid #b9b9b9;
   border-radius: 10px;
   display: flex;
@@ -88,21 +80,21 @@ input:valid {
   box-shadow: 1px 1px 50px 1px#dadada;
 }
 
-.container-image{
+.container-image {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
 }
 
-.container-image img{
+.container-image img {
   width: 100%;
   height: 100%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
-.container-form{
+.container-form {
   padding: 25px;
   display: flex;
   align-items: center;
@@ -110,25 +102,25 @@ input:valid {
   width: 50%;
 }
 
-.container-form form{
+.container-form form {
   padding-top: 25px;
   width: 300px;
   height: 100%;
 }
 
-.container-form form h2{
+.container-form form h2 {
   margin-left: 10px;
 }
 
-.form-lign{
+.form-lign {
   margin: 25px 10px;
 }
 
-.form-lign label{
+.form-lign label {
   display: block;
 }
 
-.form-lign input{
+.form-lign input {
   display: block;
   margin: 0;
   padding: 5px;
@@ -140,24 +132,24 @@ input:valid {
   transition: border 0.5s ease-in;
 }
 
-.form-lign input:hover{
+.form-lign input:hover {
   border: 1px solid #dadada;
 }
 
-.form-lign input:focus{
+.form-lign input:focus {
   outline: 0;
   border: 1px solid #cecccc;
 }
 
-.form-lign-register{
+.form-lign-register {
   margin: 25px 10px;
 }
 
-.form-lign-register label{
+.form-lign-register label {
   display: block;
 }
 
-.form-lign-register input{
+.form-lign-register input {
   display: block;
   margin: 0;
   padding: 5px;
@@ -169,11 +161,11 @@ input:valid {
   transition: border 0.5s ease-in;
 }
 
-.form-lign-register input:hover{
+.form-lign-register input:hover {
   border: 1px solid #dadada;
 }
 
-.form-lign-register input:focus{
+.form-lign-register input:focus {
   outline: 0;
   border: 1px solid #cecccc;
 }
@@ -197,16 +189,16 @@ input:valid {
 }
 
 /* Add recipe form */
-.formAddRecipe{
+.formAddRecipe {
   margin: auto;
   width: 750px;
 }
 
-.form-input{
+.form-input {
   margin-top: 30px;
 }
 
-.form-input input{
+.form-input input {
   display: block;
   margin: 0;
   padding: 5px;
@@ -218,22 +210,22 @@ input:valid {
   transition: border 0.5s ease-in;
 }
 
-.form-input input:hover{
+.form-input input:hover {
   border: 1px solid #dadada;
 }
 
-.form-input input:focus{
+.form-input input:focus {
   outline: 0;
   border: 1px solid #cecccc;
 }
 
-.form-submit{
+.form-submit {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form-submit input{
+.form-submit input {
   width: 200px;
   font-size: small;
   padding: 0;
@@ -248,4 +240,69 @@ input:valid {
 
 .form-submit input:hover {
   background: #e99d3a;
+}
+
+/* Admin zone page */
+.container-lg {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btnDeleteUser {
+  font-size: small;
+  padding: 0;
+  margin: 10px 10px;
+  width: 50%;
+  height: 40px;
+  color: white;
+  border: 1px solid transparent;
+  background: #ff0000;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+  margin-top: 3px;
+}
+
+table.table-bordered {
+  border: 1px solid black;
+}
+
+table.table-bordered > thead > tr > th {
+  border: 1px solid black;
+}
+
+table.table-bordered > tbody > tr > td {
+  border: 1px solid black;
+}
+
+#admin-h {
+  margin-bottom: 30px;
+}
+
+/* About us page */
+.about-section {
+  margin: 50px;
+  padding: 45px;
+  text-align: left;
+  border: 1px solid transparent;
+  background-color: #e99d3a;
+  color: white;
+}
+
+.container-about {
+  padding-top: 5px;
+}
+
+/* Profile page */
+.delete-button-profile{
+  font-size: small;
+  padding: 0;
+  margin: 10px 10px;
+  width: 20%;
+  height: 30px;
+  color: white;
+  border: 1px solid transparent;
+  background: #ff0000;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+  margin-top: 3px;
 }
