@@ -22,14 +22,16 @@ const SeeRecipePage = (id) => {
 const onDisplayRecipe = (recipe) => {
   let page = document.querySelector("#page");
   let aRecipe = `
-    <div class="border" id="${recipe.id}">
-      Nom : ${recipe.name} <br>
-      Description : ${recipe.description} <br>
-      Duration (min) : ${recipe.duration} <br>
-      Recette pour ${recipe.qty_people} personnes <br>
-      Date de création : ${recipe.creation_date} <br>
-      Liste d'ingrédients : ${recipe.ingredients_list} <br>
-      Créateur : ${recipe.username} <br>
+    <div class="container mt-4" id="cont-one-recipe">
+      <div class="border" id="${recipe.id}">
+        Nom : ${recipe.name} <br>
+        Description : ${recipe.description} <br>
+        Duration (min) : ${recipe.duration} <br>
+        Recette pour ${recipe.qty_people} personnes <br>
+        Date de création : ${recipe.creation_date} <br>
+        Liste d'ingrédients : ${recipe.ingredients_list} <br>
+        Créateur : ${recipe.username} <br>
+      </div>
     </div>`;
 
   page.innerHTML = aRecipe;

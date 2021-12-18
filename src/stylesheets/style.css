@@ -274,7 +274,7 @@ table.table-bordered > tbody > tr > td {
   border: 1px solid black;
 }
 
-#admin-h2 {
+#admin-h {
   margin-bottom: 30px;
 }
 
@@ -290,4 +290,19 @@ table.table-bordered > tbody > tr > td {
 
 .container-about {
   padding-top: 5px;
+}
+
+/* Profile page */
+.delete-button-profile{
+  font-size: small;
+  padding: 0;
+  margin: 10px 10px;
+  width: 20%;
+  height: 30px;
+  color: white;
+  border: 1px solid transparent;
+  background: #ff0000;
+  border-radius: 10px;
+  transition: background 0.2s ease-in;
+  margin-top: 3px;
 }

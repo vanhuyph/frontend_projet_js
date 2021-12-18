@@ -9,7 +9,7 @@ const ProfilePage = () => {
 		<div class="main-body">
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="card">
+					<div class="card border-dark">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
 								<img src="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1-300x300.jpg" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
@@ -22,10 +22,10 @@ const ProfilePage = () => {
 					</div>
 				</div>
         <div class="col-lg-8">
-					<div class="card">
-						<div class="card-body">
+					<div class="card border-dark">
+						<div class="card-body ">
 							<div class="row mb-3 text-center" id="theseRecipes">
-				
+              
 							</div>
 						</div>
 					</div>
@@ -80,12 +80,12 @@ const onTheseRecipesList = (data) => {
   let recipesList = document.querySelector("#theseRecipes");
   if(data.length === 0 || !data){
     console.log("in");
-    let emptyList = `<div class="container"><h2 class="mb-3">N'hésitez pas à ajouter vos propres recettes</h2>`;
+    let emptyList = `<div class="container"><h4 class="mb-3">N'hésitez pas à ajouter vos propres recettes</h4>`;
     recipesList.innerHTML = emptyList;
     return;
   };
 
-  let list = `<div class="container"><h2 class="mb-3">Mes recettes</h2>`;
+  let list = `<div class="container"><h4 class="mb-3">Mes recettes</h4>`;
 
   data.forEach((recipe) => {
     list += `
@@ -144,7 +144,7 @@ const onTheseRecipesList = (data) => {
         </div>
         <div class="col-sm-9 text-secondary">
           <button type="button" class="btn btn-primary btn-sm" id="btnUpdateRecipe">Modifier</button>
-          <button type="button" class="btn btn-danger btn-sm" id="btnDeleteRecipe" value="${recipe.id}">Supprimer</button>
+          <button class="delete-button-profile" type="submit" id="btnDeleteRecipe" value="${recipe.id}">Supprimer</button>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const AddRecipePage = () => {
             class="
               col-xs-12 col-sm-12 col-md-12 col-lg12"
           >
-          <h2>Ajouter une recette</h2>
+          <h4>Ajouter une recette</h4>
             <form id="formAddRecipe">
             <div class="form-input">
             <label for="name">Nom</label>
