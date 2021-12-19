@@ -29,7 +29,6 @@ const Navbar = () => {
         <li><a class="nav-link" href="#" data-uri="/profile">Mon profil</a></li>
         <li><a class="nav-link" href="#" data-uri="/aboutus">À propos de nous</a></li>
         <li><a class="nav-link" href="#" data-uri="/logout">Déconnexion</a></li>
-        
       </div>
     </div>
   </nav>`;

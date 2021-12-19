@@ -113,7 +113,7 @@ a {
 }
 
 .form-lign {
-  margin: 25px 10px;
+  margin: 40px 10px;
 }
 
 .form-lign label {
@@ -142,7 +142,7 @@ a {
 }
 
 .form-lign-register {
-  margin: 25px 10px;
+  margin: 40px 10px;
 }
 
 .form-lign-register label {
@@ -181,7 +181,6 @@ a {
   background: #f8a73f;
   border-radius: 10px;
   transition: background 0.2s ease-in;
-  margin-top: 3px;
 }
 
 .form-button:hover {
@@ -341,6 +340,7 @@ table.table-bordered > tbody > tr > td {
   caret-color: transparent;
   line-height: 40px;
   transition: width 0.4s linear;
+  color: white;
 }
 
 .search_input::placeholder {
@@ -350,7 +350,7 @@ table.table-bordered > tbody > tr > td {
 .searchbar:hover > .search_input {
   padding: 0 10px;
   width: 450px;
-  caret-color: red;
+  caret-color: white;
   transition: width 0.4s linear;
 }
 
