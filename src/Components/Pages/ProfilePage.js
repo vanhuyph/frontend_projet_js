@@ -79,7 +79,6 @@ const onInfoUser = (data) => {
 const onTheseRecipesList = (data) => {
   let recipesList = document.querySelector("#theseRecipes");
   if(data.length === 0 || !data){
-    console.log("in");
     let emptyList = `<div class="container"><h4 class="mb-3">N'hésitez pas à ajouter vos propres recettes</h4>`;
     recipesList.innerHTML = emptyList;
     return;
@@ -169,7 +168,6 @@ const onUpdate = (e)=>{
 
 const onDeleteRecipe = (e) => {
   let recipeId = e.currentTarget.value;
-  console.log(recipeId);
   const user = getUserSessionData();
 
   fetch("/api/recipes/" + recipeId, {

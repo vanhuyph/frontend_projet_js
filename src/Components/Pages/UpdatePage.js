@@ -105,7 +105,6 @@ const onUpdateRecipe = (e) => {
 
 const onRecipeUpdated = () => {
     alert("Votre recette a bien été modifié");
-    console.log("onRecipeUpdate");
     return RedirectUrl("/profile");
 }
 

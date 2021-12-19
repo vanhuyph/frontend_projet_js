@@ -95,7 +95,6 @@ const onUserDeleted = (data) => {
 };
 
 const onError = (err) => {
-  console.log("UserListPage::onError", err);
   let errorMessage;
   if (err.message) {
     errorMessage = err.message;

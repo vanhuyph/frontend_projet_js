@@ -69,7 +69,6 @@ const onRegister = (e) => {
 
 const onUserRegistration = (userData) => {
   messageBoard.classList.remove("d-blocks");
-  console.log("onUserRegistration", userData);
   const user = { ...userData, isAutenticated: true };
   setUserSessionData(user);
   // re-render the navbar for the authenticated user

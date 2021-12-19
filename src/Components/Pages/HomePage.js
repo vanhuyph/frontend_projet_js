@@ -22,7 +22,6 @@ let homepage = `
  *
  ***************************************************************************************/
 function loadingTimeAnimation() {
-  console.log("Animation");
   let generateRecipes = document.querySelector("#generateRecipes");
   const myObject = {
     "Génération de la recette en cours": "0%",
@@ -34,7 +33,6 @@ function loadingTimeAnimation() {
     duration: 1500,
     round: 1,
     update: function () {
-      console.log("Display loading");
       generateRecipes.innerHTML = JSON.stringify(myObject);
     },
   });
@@ -148,7 +146,6 @@ const onRecipesListPage = (data) => {
 
 const onRecipeDetail = (e) => {
   let recipeId = e.target.parentElement.id;
-  console.log(recipeId);
   RedirectUrl("/seerecipe", recipeId);
 };
 
