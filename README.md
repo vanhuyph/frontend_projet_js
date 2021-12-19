@@ -1,6 +1,7 @@
 # Frontend project FoodX app
 ## How to install the frontend?
-- Clone the repository
+- Firstly, if you still haven't installed our backend go to: https://github.com/vanhuyph/backend_projet_js
+- Once it's done, clone the frontend's repository in the same folder as the backend
 ```
 git clone https://github.com/vanhuyph/frontend_projet_js
 ```
