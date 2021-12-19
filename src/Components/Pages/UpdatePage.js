@@ -42,15 +42,15 @@ const onDisplayRecipe = (data) => {
               <input class="form-control" id="description" rows="5" type="text" name="description" value="${data.description}" oninvalid="this.setCustomValidity('Entrer la description de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
             <div class="form-input">
-              <label for="duration">Duree (min)</label>
+              <label for="duration">Durée (min)</label>
               <input class="form-control" id="duration" type="number" min=1 name="duration" value="${data.duration}" oninvalid="this.setCustomValidity('Entrer une duree valide')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input" >
-              <label for="qty">Quantit pour les personnes</label>
+              <label for="qty">Quantité pour les personnes</label>
               <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" value="${data.qty_people}" oninvalid="this.setCustomValidity('Entrer la quantite pour les personnes')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
-              <label for="ingredients">Ingredients</label>
+              <label for="ingredients">Ingrédients</label>
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" value="${data.ingredients_list}" oninvalid="this.setCustomValidity('Entrer les ingredients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-submit">
