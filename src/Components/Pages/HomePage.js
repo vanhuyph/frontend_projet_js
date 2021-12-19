@@ -1,5 +1,6 @@
 import { RedirectUrl } from "../Router/Router.js";
 import ImageLogin from "../../img/login.jpg";
+import SearchIcon from "../../img/search-icon.png";
 
 let page = document.querySelector("#page");
 let homepage = `
@@ -96,7 +97,7 @@ const onRecipesListPage = (data) => {
       <div class="d-flex justify-content-center h-100">
         <div class="searchbar">
           <input class="search_input" type="text" name="" placeholder="Recherche par recette ou créateur..." id="search">
-          <a type="submit" class="search_icon" id="btnSearch"><i class="fas fa-search"></i></a>
+          <a type="submit" class="search_icon" id="btnSearch"><img src ="${SearchIcon}" height="20px"></a>
         </div>
       </div>
     </div>
