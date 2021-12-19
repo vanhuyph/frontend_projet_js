@@ -43,15 +43,15 @@ const onDisplayRecipe = (data) => {
             </div>
             <div class="form-input">
               <label for="duration">Durée (min)</label>
-              <input class="form-control" id="duration" type="number" min=1 name="duration" value="${data.duration}" oninvalid="this.setCustomValidity('Entrer une duree valide')" oninput="this.setCustomValidity('')" required />
+              <input class="form-control" id="duration" type="number" min=1 name="duration" value="${data.duration}" oninvalid="this.setCustomValidity('Entrer une durée valide')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input" >
               <label for="qty">Quantité pour les personnes</label>
-              <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" value="${data.qty_people}" oninvalid="this.setCustomValidity('Entrer la quantite pour les personnes')" oninput="this.setCustomValidity('')" required />
+              <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" value="${data.qty_people}" oninvalid="this.setCustomValidity('Entrer la quantité pour les personnes')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
               <label for="ingredients">Ingrédients</label>
-              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" value="${data.ingredients_list}" oninvalid="this.setCustomValidity('Entrer les ingredients de la recette')" oninput="this.setCustomValidity('')" required />
+              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" value="${data.ingredients_list}" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-submit">
               <input class="form-control" id="btnForm" type="submit" name="${data.id}" value="Modifier">

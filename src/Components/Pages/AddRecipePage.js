@@ -25,16 +25,16 @@ const AddRecipePage = () => {
               <input class="form-control" id="description" rows="5" type="text" name="description" oninvalid="this.setCustomValidity('Entrer la description/préparation de la recette')" oninput="this.setCustomValidity('')" required />            
             </div>
             <div class="form-input">
-              <label for="duration">Duree (min)</label>
-              <input class="form-control" id="duration" type="number" min=1 name="duration" oninvalid="this.setCustomValidity('Entrer une duree valide')" oninput="this.setCustomValidity('')" required />
+              <label for="duration">Durée (min)</label>
+              <input class="form-control" id="duration" type="number" min=1 name="duration" oninvalid="this.setCustomValidity('Entrer une durée valide')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input" >
-              <label for="qty">Quantite pour les personnes</label>
-              <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" oninvalid="this.setCustomValidity('Entrer la quantite pour les personnes')" oninput="this.setCustomValidity('')" required />
+              <label for="qty">Quantité pour les personnes</label>
+              <input class="form-control" id="qty_people" type="number" min=1 name="qty_people" oninvalid="this.setCustomValidity('Entrer la quantité pour les personnes')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-input">
-              <label for="ingredients">Ingredients</label>
-              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingredients de la recette')" oninput="this.setCustomValidity('')" required />
+              <label for="ingredients">Ingrédients</label>
+              <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" oninvalid="this.setCustomValidity('Entrer les ingrédients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-submit">
               <input class="form-control" id="btnForm" type="submit" value="Ajouter">
