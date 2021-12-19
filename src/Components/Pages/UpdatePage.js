@@ -54,7 +54,7 @@ const onDisplayRecipe = (data) => {
               <input class="form-control" id="ingredients_list" type="text" name="ingredients_list" value="${data.ingredients_list}" oninvalid="this.setCustomValidity('Entrer les ingredients de la recette')" oninput="this.setCustomValidity('')" required />
             </div>
             <div class="form-submit">
-              <input class="form-control" id="btnForm" type="button" name="${data.id}" value="Modifier">
+              <input class="form-control" id="btnForm" type="submit" name="${data.id}" value="Modifier">
             </div>
             </form>
           </article>
@@ -64,11 +64,12 @@ const onDisplayRecipe = (data) => {
   `;
   page.innerHTML= formUpdate;
 
-  let btnUpdate = document.getElementById("btnForm");
-  btnUpdate.addEventListener("click", onUpdateRecipe);
+  let btnUpdate = document.querySelector("form");
+  btnUpdate.addEventListener("submit", onUpdateRecipe);
 }
 
-const onUpdateRecipe = () => {
+const onUpdateRecipe = (e) => {
+    e.preventDefault();
     let recipeId = document.getElementById("btnForm").name;
     const user = getUserSessionData();
 
